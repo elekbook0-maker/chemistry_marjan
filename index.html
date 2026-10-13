@@ -1,0 +1,4296 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Коллоидты химия | Электрондық оқулық</title>
+    <!-- MathJax формулаларды көрсету үшін -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <style>
+        /* ========== НЕГІЗГІ СТИЛЬДЕР ========== */
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --secondary-light: #a78bfa;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --success: #16a34a;
+            --error: #dc2626;
+            --warning: #f59e0b;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+            --radius-sm: 8px;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #e2e8f0;
+            --text-light: #94a3b8;
+            --border: #334155;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 17px;
+            transition: background 0.3s, color 0.3s;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* ========== НАВИГАЦИЯ ========== */
+        .sidebar {
+            width: 300px;
+            background: var(--card-bg);
+            border-right: 1px solid var(--border);
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            overflow-y: auto;
+            padding: 1.5rem 1rem;
+            flex-shrink: 0;
+            transition: transform 0.3s, background 0.3s;
+            z-index: 100;
+        }
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .sidebar-header h1 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .sidebar-header .logo-icon {
+            font-size: 1.8rem;
+        }
+
+        .nav-section {
+            margin-bottom: 0.25rem;
+        }
+
+        .nav-section-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-light);
+            padding: 0.5rem 0.75rem;
+            font-weight: 600;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.6rem 0.75rem;
+            border-radius: var(--radius-sm);
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .nav-link:hover {
+            background: rgba(37, 99, 235, 0.08);
+            color: var(--primary);
+        }
+
+        .nav-link.active {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        .nav-link .nav-icon {
+            font-size: 1.1rem;
+            width: 1.5rem;
+            text-align: center;
+        }
+
+        .nav-link .nav-badge {
+            margin-left: auto;
+            font-size: 0.7rem;
+            background: var(--secondary);
+            color: white;
+            padding: 0.1rem 0.4rem;
+            border-radius: 999px;
+        }
+
+        .nav-sub {
+            padding-left: 1.5rem;
+        }
+
+        .nav-sub .nav-link {
+            font-size: 0.88rem;
+            padding: 0.4rem 0.75rem;
+            color: var(--text-light);
+        }
+
+        .nav-sub .nav-link:hover {
+            color: var(--primary);
+        }
+
+        /* ========== НЕГІЗГІ МАЗМҰН ========== */
+        .main-content {
+            flex: 1;
+            padding: 2rem 2.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            padding: 0.5rem 1rem;
+            flex: 1;
+            max-width: 400px;
+            transition: border-color 0.2s;
+        }
+
+        .search-box:focus-within {
+            border-color: var(--primary);
+        }
+
+        .search-box input {
+            border: none;
+            background: none;
+            outline: none;
+            color: var(--text);
+            font-size: 0.95rem;
+            width: 100%;
+            font-family: inherit;
+        }
+
+        .search-box .search-icon {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .top-actions {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .btn-icon {
+            background: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 0.5rem 0.75rem;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+            color: var(--text);
+        }
+
+        .btn-icon:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* ========== КАРТОЧКАЛАР ========== */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-subtitle {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin: 1.2rem 0 0.6rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text);
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin: 1rem 0 0.5rem;
+        }
+
+        p {
+            margin-bottom: 0.8rem;
+        }
+
+        ul, ol {
+            margin: 0.5rem 0 1rem 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.3rem;
+        }
+
+        /* ========== АНЫҚТАМА БЛОГЫ ========== */
+        .definition {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.06), rgba(124, 58, 237, 0.06));
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.25rem;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin: 1rem 0;
+        }
+
+        .definition .term {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .simple-explain {
+            background: rgba(124, 58, 237, 0.06);
+            border-left: 4px solid var(--secondary);
+            padding: 0.75rem 1rem;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin: 0.75rem 0;
+            font-style: italic;
+            color: var(--secondary);
+        }
+
+        .simple-explain::before {
+            content: "💡 Қарапайым тілмен: ";
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        /* ========== ФОРМУЛА КАРТОЧКАЛАРЫ ========== */
+        .formula-card {
+            background: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            margin: 1rem 0;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .formula-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .formula-card .formula-display {
+            font-size: 1.3rem;
+            text-align: center;
+            padding: 1rem;
+            background: var(--bg);
+            border-radius: var(--radius-sm);
+            margin: 0.75rem 0;
+            overflow-x: auto;
+        }
+
+        .formula-card .formula-meta {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px dashed var(--border);
+        }
+
+        .formula-card.expanded .formula-meta {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        .formula-card .formula-name {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.05rem;
+        }
+
+        .formula-card .toggle-hint {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-align: right;
+        }
+
+        /* ========== КЕСТЕЛЕР ========== */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 1rem 0;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 0.7rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+
+        tr:nth-child(even) {
+            background: rgba(37, 99, 235, 0.03);
+        }
+
+        tr:hover {
+            background: rgba(37, 99, 235, 0.06);
+        }
+
+        /* ========== БАТЫРМАЛАР ========== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #6d28d9;
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #15803d;
+        }
+
+        .btn-sm {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.85rem;
+        }
+
+        /* ========== ЕСЕПТЕР ========== */
+        .problem {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            margin: 1rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .problem-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .problem-number {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 1.05rem;
+        }
+
+        .problem-body {
+            margin: 0.75rem 0;
+        }
+
+        .problem-section {
+            margin: 0.5rem 0;
+        }
+
+        .problem-section strong {
+            color: var(--primary);
+        }
+
+        .solution {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(22, 163, 74, 0.06);
+            border-left: 4px solid var(--success);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        }
+
+        .solution.show {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        /* ========== ЗЕРТХАНАЛЫҚ ЖҰМЫСТАР ========== */
+        .lab-work {
+            background: var(--card-bg);
+            border: 2px solid var(--secondary);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .lab-work-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px dashed var(--secondary);
+        }
+
+        .lab-work-header h3 {
+            margin: 0;
+            color: var(--secondary);
+        }
+
+        .safety-block {
+            background: rgba(245, 158, 11, 0.08);
+            border: 2px solid var(--warning);
+            border-radius: var(--radius-sm);
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .safety-block .safety-title {
+            font-weight: 700;
+            color: var(--warning);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .lab-input-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.75rem;
+            margin: 0.75rem 0;
+        }
+
+        .lab-input-group label {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .lab-input-group input {
+            padding: 0.5rem 0.75rem;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            font-family: inherit;
+            background: var(--bg);
+            color: var(--text);
+            transition: border-color 0.2s;
+        }
+
+        .lab-input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .lab-result {
+            background: rgba(22, 163, 74, 0.08);
+            border: 1px solid var(--success);
+            border-radius: var(--radius-sm);
+            padding: 0.75rem 1rem;
+            margin: 0.75rem 0;
+            font-weight: 600;
+            color: var(--success);
+        }
+
+        /* ========== ТЕСТТЕР ========== */
+        .quiz-container {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            margin: 1.5rem 0;
+        }
+
+        .quiz-question {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .quiz-question:last-of-type {
+            border-bottom: none;
+        }
+
+        .quiz-question .q-text {
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .quiz-question .q-number {
+            color: var(--primary);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .quiz-option {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.6rem 0.9rem;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--primary);
+            background: rgba(37, 99, 235, 0.04);
+        }
+
+        .quiz-option.selected {
+            border-color: var(--primary);
+            background: rgba(37, 99, 235, 0.08);
+        }
+
+        .quiz-option.correct {
+            border-color: var(--success);
+            background: rgba(22, 163, 74, 0.1);
+        }
+
+        .quiz-option.incorrect {
+            border-color: var(--error);
+            background: rgba(220, 38, 38, 0.1);
+        }
+
+        .quiz-option input {
+            accent-color: var(--primary);
+        }
+
+        .quiz-feedback {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: none;
+        }
+
+        .quiz-feedback.show {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        .quiz-feedback.correct {
+            color: var(--success);
+        }
+
+        .quiz-feedback.incorrect {
+            color: var(--error);
+        }
+
+        .quiz-result {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(124, 58, 237, 0.08));
+            border-radius: var(--radius);
+            margin-top: 1rem;
+        }
+
+        .quiz-result .score {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .quiz-result .grade {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        /* ========== ПРОГРЕСС ========== */
+        .progress-bar-container {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 1rem 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .progress-bar {
+            flex: 1;
+            height: 12px;
+            background: var(--border);
+            border-radius: 999px;
+            overflow: hidden;
+            min-width: 150px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 999px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .progress-text {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+            white-space: nowrap;
+        }
+
+        /* ========== СХЕМАЛАР ========== */
+        .schema-container {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+
+        .schema-container svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ========== ГЛОССАРИЙ ========== */
+        .glossary-item {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            margin-bottom: 0.5rem;
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+
+        .glossary-term {
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--card-bg);
+            transition: background 0.2s;
+        }
+
+        .glossary-term:hover {
+            background: rgba(37, 99, 235, 0.06);
+        }
+
+        .glossary-term .arrow {
+            transition: transform 0.3s;
+            color: var(--text-light);
+        }
+
+        .glossary-item.open .glossary-term .arrow {
+            transform: rotate(180deg);
+        }
+
+        .glossary-definition {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s;
+            padding: 0 1rem;
+            background: var(--bg);
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .glossary-item.open .glossary-definition {
+            max-height: 300px;
+            padding: 0.75rem 1rem;
+        }
+
+        /* ========== АНИМАЦИЯЛАР ========== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.4s ease;
+        }
+
+        /* ========== ЖАСЫРЫЛҒАН БӨЛІМДЕР ========== */
+        .section-page {
+            display: none;
+        }
+
+        .section-page.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        /* ========== МОБИЛЬДІ МӘЗІР ========== */
+        .mobile-menu-btn {
+            display: none;
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 200;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.2s;
+        }
+
+        .mobile-menu-btn:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 99;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 900px) {
+            .sidebar {
+                position: fixed;
+                left: 0;
+                top: 0;
+                transform: translateX(-100%);
+                width: 280px;
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .sidebar-overlay.show {
+                display: block;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .main-content {
+                padding: 1.5rem 1rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .card {
+                padding: 1rem;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 500px) {
+            body {
+                font-size: 15px;
+            }
+
+            .main-content {
+                padding: 1rem 0.75rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            .quiz-result .score {
+                font-size: 2rem;
+            }
+        }
+
+        /* ========== ПЕЧАТЬ ========== */
+        @media print {
+            .sidebar, .mobile-menu-btn, .top-actions, .search-box {
+                display: none;
+            }
+            .main-content {
+                padding: 0;
+            }
+            .section-page {
+                display: block !important;
+            }
+        }
+
+        /* ========== ҚОСЫМША ========== */
+        .highlight {
+            background: linear-gradient(120deg, rgba(37, 99, 235, 0.15), rgba(124, 58, 237, 0.15));
+            padding: 0.1rem 0.3rem;
+            border-radius: 4px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-primary {
+            background: rgba(37, 99, 235, 0.15);
+            color: var(--primary);
+        }
+
+        .badge-secondary {
+            background: rgba(124, 58, 237, 0.15);
+            color: var(--secondary);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-1 { margin-top: 0.5rem; }
+        .mt-2 { margin-top: 1rem; }
+        .mt-3 { margin-top: 1.5rem; }
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-3 { margin-bottom: 1.5rem; }
+    </style>
+</head>
+<body>
+
+<!-- ========== МОБИЛЬДІ МӘЗІР БАТЫРМАСЫ ========== -->
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Мәзірді ашу">☰</button>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- ========== БҮЙІР МӘЗІР ========== -->
+<nav class="sidebar" id="sidebar" role="navigation" aria-label="Негізгі навигация">
+    <div class="sidebar-header">
+        <span class="logo-icon"></span>
+        <h1>Коллоидты химия</h1>
+    </div>
+
+    <div class="nav-section">
+        <button class="nav-link active" data-page="home">
+            <span class="nav-icon"></span> Басты бет
+        </button>
+        <button class="nav-link" data-page="preface">
+            <span class="nav-icon"></span> Алғы сөз
+        </button>
+    </div>
+
+    <div class="nav-section">
+        <div class="nav-section-title">І ТАРАУ. Коллоидты жүйе</div>
+        <button class="nav-link nav-sub" data-page="ch1-theory">
+            <span class="nav-icon"></span> Коллоидты жүйе туралы
+        </button>
+        <button class="nav-link nav-sub" data-page="lab1">
+            <span class="nav-icon"></span> №1 зертханалық жұмыс
+        </button>
+        <button class="nav-link nav-sub" data-page="lab2">
+            <span class="nav-icon"></span> №2 зертханалық жұмыс
+        </button>
+        <button class="nav-link nav-sub" data-page="lab3">
+            <span class="nav-icon"></span> №3 зертханалық жұмыс
+        </button>
+        <button class="nav-link nav-sub" data-page="quiz1">
+            <span class="nav-icon"></span> І тарау тесті
+        </button>
+    </div>
+
+    <div class="nav-section">
+        <div class="nav-section-title">ІІ ТАРАУ. Беттік құбылыстар</div>
+        <button class="nav-link nav-sub" data-page="ch2-theory">
+            <span class="nav-icon"></span> Беттік керілу және адсорбция
+        </button>
+        <button class="nav-link nav-sub" data-page="ch2-problems">
+            <span class="nav-icon"></span> Типтік есептер
+        </button>
+        <button class="nav-link nav-sub" data-page="lab4">
+            <span class="nav-icon"></span> №4 зертханалық жұмыс
+        </button>
+        <button class="nav-link nav-sub" data-page="lab5">
+            <span class="nav-icon"></span> №5 зертханалық жұмыс
+        </button>
+        <button class="nav-link nav-sub" data-page="quiz2">
+            <span class="nav-icon"></span> ІІ тарау тесті
+        </button>
+    </div>
+
+    <div class="nav-section">
+        <div class="nav-section-title">ІІІ ТАРАУ. Молекула-кинетикалық қасиеттер</div>
+        <button class="nav-link nav-sub" data-page="ch3-theory">
+            <span class="nav-icon"></span> Броундық қозғалыс, диффузия
+        </button>
+        <button class="nav-link nav-sub" data-page="ch3-problems">
+            <span class="nav-icon"></span> Седиментация есептері
+        </button>
+        <button class="nav-link nav-sub" data-page="lab6">
+            <span class="nav-icon"></span> №6 зертханалық жұмыс
+        </button>
+        <button class="nav-link nav-sub" data-page="quiz3">
+            <span class="nav-icon"></span> ІІІ тарау тесті
+        </button>
+    </div>
+
+    <div class="nav-section">
+        <div class="nav-section-title">IV ТАРАУ. Алу және тазалау</div>
+        <button class="nav-link nav-sub" data-page="ch4-theory">
+            <span class="nav-icon"></span> Алу және тазалау әдістері
+        </button>
+        <button class="nav-link nav-sub" data-page="lab7">
+            <span class="nav-icon"></span> №7–8 зертханалық жұмыстар
+        </button>
+        <button class="nav-link nav-sub" data-page="lab9">
+            <span class="nav-icon"></span> №9 зертханалық жұмыс
+        </button>
+        <button class="nav-link nav-sub" data-page="quiz4">
+            <span class="nav-icon"></span> IV тарау тесті
+        </button>
+    </div>
+
+    <div class="nav-section">
+        <div class="nav-section-title">V ТАРАУ. Коагуляция</div>
+        <button class="nav-link nav-sub" data-page="ch5-theory">
+            <span class="nav-icon"></span> Коагуляция және тұрақтандыру
+        </button>
+        <button class="nav-link nav-sub" data-page="lab10">
+            <span class="nav-icon"></span> №10–11 зертханалық жұмыстар
+        </button>
+        <button class="nav-link nav-sub" data-page="lab12">
+            <span class="nav-icon"></span> №12–13 зертханалық жұмыстар
+        </button>
+        <button class="nav-link nav-sub" data-page="lab14">
+            <span class="nav-icon"></span> №14 зертханалық жұмыс
+        </button>
+        <button class="nav-link nav-sub" data-page="quiz5">
+            <span class="nav-icon"></span> V тарау тесті
+        </button>
+    </div>
+
+    <div class="nav-section">
+        <div class="nav-section-title">VI ТАРАУ. Оптикалық қасиеттер</div>
+        <button class="nav-link nav-sub" data-page="ch6-theory">
+            <span class="nav-icon"></span> Оптикалық қасиеттер
+        </button>
+        <button class="nav-link nav-sub" data-page="lab15">
+            <span class="nav-icon"></span> №15 зертханалық жұмыс
+        </button>
+        <button class="nav-link nav-sub" data-page="quiz6">
+            <span class="nav-icon"></span> VI тарау тесті
+        </button>
+    </div>
+
+    <div class="nav-section">
+        <div class="nav-section-title">ҚОСЫМШАЛАР</div>
+        <button class="nav-link" data-page="formulas">
+            <span class="nav-icon"></span> Формулалар
+        </button>
+        <button class="nav-link" data-page="tables">
+            <span class="nav-icon"></span> Кестелер
+        </button>
+        <button class="nav-link" data-page="schemas">
+            <span class="nav-icon"></span> Схемалар
+        </button>
+        <button class="nav-link" data-page="glossary">
+            <span class="nav-icon"></span> Глоссарий
+        </button>
+        <button class="nav-link" data-page="final-quiz">
+            <span class="nav-icon"></span> Қорытынды бақылау
+        </button>
+        <button class="nav-link" data-page="references">
+            <span class="nav-icon"></span> Әдебиеттер
+        </button>
+    </div>
+
+    <div class="nav-section">
+        <button class="nav-link" id="resetProgressBtn" style="color: var(--error);">
+            <span class="nav-icon"></span> Прогресті тазарту
+        </button>
+    </div>
+</nav>
+
+<!-- ========== НЕГІЗГІ МАЗМҰН ========== -->
+<main class="main-content" id="mainContent">
+
+    <!-- Прогресс бар -->
+    <div class="progress-bar-container" id="progressBarContainer">
+        <span class="progress-text">Сіздің прогресіңіз:</span>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <span class="progress-text" id="progressPercent">0%</span>
+    </div>
+
+    <!-- Жоғарғы панель -->
+    <div class="top-bar">
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" placeholder="Іздеу: адсорбция, седиментация, коагуляция..." aria-label="Оқулықтан іздеу">
+        </div>
+        <div class="top-actions">
+            <button class="btn-icon" id="themeToggle" title="Қараңғы/жарық режим">🌙</button>
+        </div>
+    </div>
+
+    <!-- ========== БАСТЫ БЕТ ========== -->
+    <section class="section-page active" id="page-home">
+        <div class="card text-center">
+            <h1 style="font-size: 2.2rem; color: var(--primary); margin-bottom: 0.5rem;"> КОЛЛОИДТЫ ХИМИЯ</h1>
+            <p style="font-size: 1.2rem; color: var(--secondary); font-weight: 600;">Электрондық оқу-әдістемелік құрал</p>
+            <p style="color: var(--text-light); margin-top: 1rem;">Зертханалық жұмыстарға арналған интерактивті оқулық</p>
+            <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+                <p style="font-weight: 600; color: var(--text); margin-bottom: 0.25rem;">Авторы:</p>
+                <p style="font-size: 1.1rem; color: var(--primary); font-weight: 700;">Нурбекова Маржан Абдыжапаровна</p>
+                <p style="color: var(--text-light);">Химия ғылымдарының кандидаты, Қауымдастырылған профессор</p>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <h3>📖 Оқулық туралы</h3>
+                <p>Бұл электрондық оқулық «Коллоидты химиядан зертханалық жұмыстар» пәніне арналған. Онда коллоидты жүйелердің теориясы, беттік құбылыстар, адсорбция, молекула-кинетикалық қасиеттер, коагуляция және оптикалық қасиеттер қарастырылады.</p>
+                <p>Оқулық 15 зертханалық жұмысты, типтік есептерді, тесттерді және глоссарийді қамтиды.</p>
+            </div>
+            <div class="card">
+                <h3> Оқу мақсаттары</h3>
+                <ul>
+                    <li>Коллоидты жүйелер туралы теориялық білім қалыптастыру</li>
+                    <li>Беттік құбылыстар мен адсорбцияны түсіндіру</li>
+                    <li>Молекула-кинетикалық қасиеттерді меңгерту</li>
+                    <li>Коллоидты жүйелерді алу және тазарту әдістерін түсіндіру</li>
+                    <li>Коагуляция және тұрақтандыру құбылыстарын меңгерту</li>
+                    <li>Оптикалық қасиеттерді зерттеу</li>
+                    <li>Зертханалық жұмыстарды қауіпсіз орындауға үйрету</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mt-2">
+            <h3> Мазмұн</h3>
+            <div class="grid-2">
+                <div>
+                    <h4>І ТАРАУ. Коллоидты жүйе</h4>
+                    <ul>
+                        <li>Коллоидты жүйе туралы түсінік</li>
+                        <li>№1, №2, №3 зертханалық жұмыстар</li>
+                    </ul>
+                    <h4>ІІ ТАРАУ. Беттік құбылыстар</h4>
+                    <ul>
+                        <li>Беттік керілу</li>
+                        <li>Адсорбция</li>
+                        <li>№4, №5 зертханалық жұмыстар</li>
+                    </ul>
+                    <h4>ІІІ ТАРАУ. Молекула-кинетикалық қасиеттер</h4>
+                    <ul>
+                        <li>Броундық қозғалыс, диффузия, седиментация</li>
+                        <li>№6 зертханалық жұмыс</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>IV ТАРАУ. Алу және тазалау</h4>
+                    <ul>
+                        <li>Коллоидты жүйелерді алу</li>
+                        <li>Тазарту әдістері</li>
+                        <li>№7–9 зертханалық жұмыстар</li>
+                    </ul>
+                    <h4>V ТАРАУ. Коагуляция</h4>
+                    <ul>
+                        <li>Коагуляция және тұрақтандыру</li>
+                        <li>№10–14 зертханалық жұмыстар</li>
+                    </ul>
+                    <h4>VI ТАРАУ. Оптикалық қасиеттер</h4>
+                    <ul>
+                        <li>Оптикалық қасиеттер</li>
+                        <li>№15 зертханалық жұмыс</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mt-2">
+            <h3> Жылдам навигация</h3>
+            <div class="grid-2">
+                <button class="btn btn-primary" onclick="navigateTo('ch1-theory')"> І тараудан бастау</button>
+                <button class="btn btn-secondary" onclick="navigateTo('lab1')"> №1 зертханалық жұмыс</button>
+                <button class="btn btn-outline" onclick="navigateTo('formulas')"> Формулалар</button>
+                <button class="btn btn-outline" onclick="navigateTo('final-quiz')"> Қорытынды тест</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== АЛҒЫ СӨЗ ========== -->
+    <section class="section-page" id="page-preface">
+        <h2> Алғы сөз</h2>
+        <div class="card">
+            <p>Құрметті студент!</p>
+            <p>Коллоидты химия — заттардың дисперстік күйін, беттік құбылыстарды және коллоидты жүйелердің қасиеттерін зерттейтін химия ғылымының маңызды саласы. Бұл пән химия, биология, медицина, фармацевтика, тағам өндірісі және экология сияқты көптеген салаларда кеңінен қолданылады.</p>
+            
+            <div class="definition">
+                <span class="term">Коллоидты химияның маңызы:</span> Коллоидты жүйелер табиғатта өте көп кездеседі. Мысалы, сүт, қан, тұман, түтін, бояулар, желімдер — барлығы коллоидты жүйелер. Сондықтан коллоидты химияны білу күнделікті өмірде де, ғылыми зерттеулерде де қажет.
+            </div>
+
+            <h3>Бұл оқулықты қалай пайдалану керек?</h3>
+            <ol>
+                <li><strong>Теориялық материалды оқыңыз.</strong> Әр тарауда қарапайым тілмен түсіндірілген теория берілген.</li>
+                <li><strong>Формулалармен танысыңыз.</strong> Формула карточкаларын басып, толық ақпаратты көріңіз.</li>
+                <li><strong>Типтік есептерді шығарыңыз.</strong> Алдымен өзіңіз шығарып көріңіз, содан кейін шешімін ашыңыз.</li>
+                <li><strong>Зертханалық жұмыстарды орындаңыз.</strong> Нәтижелерді интерактивті өрістерге енгізіп, есептеу жүргізіңіз.</li>
+                <li><strong>Тесттерді тапсырыңыз.</strong> Әр тарау соңындағы тесттер арқылы біліміңізді тексеріңіз.</li>
+                <li><strong>Прогресті бақылаңыз.</strong> Оқулық сіздің прогресіңізді автоматты түрде сақтайды.</li>
+            </ol>
+
+            <p>Оқулықта қауіпсіздік ережелеріне ерекше назар аударылған. Зертханалық жұмыстарды орындамас бұрын міндетті түрде оқып шығыңыз.</p>
+            <p class="mt-2"><em>Сәттілік тілейміз!</em></p>
+        </div>
+    </section>
+
+    <!-- ========== І ТАРАУ ТЕОРИЯ ========== -->
+    <section class="section-page" id="page-ch1-theory">
+        <h2> І ТАРАУ. Коллоидты жүйе</h2>
+        <div class="card">
+            <h3>Тараудың мақсаты</h3>
+            <p>Коллоидты жүйелер туралы түсінік қалыптастыру, олардың жіктелуін, ерекшеліктерін және күнделікті өмірдегі маңызын түсіндіру.</p>
+
+            <h3>Күтілетін оқу нәтижелері</h3>
+            <ul>
+                <li>Дисперсті жүйе, дисперстік фаза, дисперсиялық орта ұғымдарын білу;</li>
+                <li>Коллоидты жүйелердің жіктелуін түсіну;</li>
+                <li>Лиофильді және лиофобты жүйелерді ажырата білу;</li>
+                <li>Коллоидты жүйелердің күнделікті өмірдегі мысалдарын келтіру.</li>
+            </ul>
+
+            <h3>1.1. Дисперсті жүйе ұғымы</h3>
+            <div class="definition">
+                <span class="term">Дисперсті жүйе</span> — бір заттың (дисперстік фаза) екінші заттың (дисперсиялық орта) ішінде ұсақ бөлшектер түрінде таралған жүйесі.
+            </div>
+            <div class="simple-explain">
+                Көптеген ұсақ бөлшектер үлкен ортаның ішінде "қалқып жүреді". Мысалы, тұман — ауадағы су тамшылары, сүт — судағы май тамшылары.
+            </div>
+
+            <h4>Негізгі ұғымдар</h4>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>Ұғым</th><th>Анықтама</th><th>Мысал</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Дисперстік фаза</strong></td><td>Ұсақ бөлшектер түрінде таралған зат</td><td>Тұмандағы су тамшылары</td></tr>
+                        <tr><td><strong>Дисперсиялық орта</strong></td><td>Дисперстік фаза таралған орта</td><td>Тұмандағы ауа</td></tr>
+                        <tr><td><strong>Дисперстік дәрежесі</strong></td><td>Бөлшектердің ұсақтық өлшемі</td><td>Коллоидты бөлшектер 1-100 нм</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>1.2. Коллоидты жүйелердің ерекшеліктері</h3>
+            <ul>
+                <li>Бөлшектер мөлшері 1-100 нм аралығында;</li>
+                <li>Жоғары дисперстілік;</li>
+                <li>Беттік ауданның үлкен болуы;</li>
+                <li>Броундық қозғалыс;</li>
+                <li>Тиндал эффектісі;</li>
+                <li>Электрокинетикалық құбылыстар.</li>
+            </ul>
+
+            <h3>1.3. Коллоидты жүйелердің жіктелуі</h3>
+            <h4>Дисперстік фаза мен ортаның агрегаттық күйі бойынша:</h4>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>Дисперстік фаза</th><th>Дисперсиялық орта</th><th>Атауы</th><th>Мысал</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Қатты</td><td>Сұйық</td><td>Золь, суспензия</td><td>Бояулар, тұнбалар</td></tr>
+                        <tr><td>Сұйық</td><td>Газ</td><td>Аэрозоль</td><td>Тұман</td></tr>
+                        <tr><td>Қатты</td><td>Газ</td><td>Аэрозоль</td><td>Түтін</td></tr>
+                        <tr><td>Газ</td><td>Сұйық</td><td>Көбік</td><td>Сабын көбігі</td></tr>
+                        <tr><td>Сұйық</td><td>Сұйық</td><td>Эмульсия</td><td>Сүт</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Лиофильді және лиофобты жүйелер:</h4>
+            <div class="definition">
+                <span class="term">Лиофильді жүйелер</span> — дисперстік фаза мен дисперсиялық орта арасында жақсы әрекеттесу болатын жүйелер.
+            </div>
+            <div class="definition">
+                <span class="term">Лиофобты жүйелер</span> — дисперстік фаза мен дисперсиялық орта арасында әлсіз әрекеттесу болатын жүйелер.
+            </div>
+            <div class="simple-explain">
+                Лиофильді — "ортаны жақсы көретін", лиофобты — "ортаны жақсы көрмейтін" деген мағынада. Су болса — гидрофильді және гидрофобты.
+            </div>
+
+            <h3>1.4. Күнделікті өмірдегі коллоидты жүйелер</h3>
+            <div class="grid-2">
+                <div>
+                    <ul>
+                        <li>🥛 Сүт — эмульсия</li>
+                        <li>☁️ Тұман — аэрозоль</li>
+                        <li>🧴 Лосьондар — эмульсия</li>
+                        <li>🩸 Қан — коллоидты жүйе</li>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li> Бояулар — суспензия</li>
+                        <li> Балмұздақ — көбік</li>
+                        <li> Түтін — аэрозоль</li>
+                        <li> Гельдер — коллоидты жүйе</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>1.5. Негізгі формулалар</h3>
+            <div class="formula-card" onclick="this.classList.toggle('expanded')">
+                <div class="formula-name">Дисперстік дәреже</div>
+                <div class="formula-display">$$D = \frac{1}{a}$$</div>
+                <div class="toggle-hint">Толық ақпарат үшін басыңыз ▼</div>
+                <div class="formula-meta">
+                    <p><strong>Мұндағы:</strong></p>
+                    <ul>
+                        <li>\(D\) — дисперстік дәреже, м⁻¹</li>
+                        <li>\(a\) — бөлшек мөлшері, м</li>
+                    </ul>
+                    <p><strong>Қолданылуы:</strong> Бөлшектердің ұсақтық дәрежесін анықтау үшін.</p>
+                    <p><strong>Мысал:</strong> Егер бөлшек мөлшері 10⁻⁷ м болса, \(D = 1/10^{-7} = 10^7\) м⁻¹.</p>
+                </div>
+            </div>
+
+            <h3>1.6. Бақылау сұрақтары</h3>
+            <ol>
+                <li>Дисперсті жүйе дегеніміз не?</li>
+                <li>Дисперстік фаза мен дисперсиялық ортаны ажыратыңыз.</li>
+                <li>Коллоидты жүйелердің өлшем диапазоны қандай?</li>
+                <li>Лиофильді және лиофобты жүйелерге мысал келтіріңіз.</li>
+                <li>Күнделікті өмірде коллоидты жүйелерге қандай мысалдар келтіруге болады?</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- ========== №1 ЗЕРТХАНАЛЫҚ ЖҰМЫС ========== -->
+    <section class="section-page" id="page-lab1">
+        <h2> №1 зертханалық жұмыс</h2>
+        <div class="lab-work">
+            <div class="lab-work-header">
+                <span style="font-size: 2rem;"></span>
+                <h3>Коллоидты ерітінділерді алу және олардың қасиеттерін зерттеу</h3>
+            </div>
+
+            <h4>Жұмыстың мақсаты</h4>
+            <p>Коллоидты ерітінділерді алу әдістерін меңгеру және олардың негізгі қасиеттерін зерттеу.</p>
+
+            <h4>Теориялық негізі</h4>
+            <p>Коллоидты ерітінділерді алудың екі негізгі әдісі бар: диспергациялау (ұсақтау) және конденсациялау (іріктеу). Бұл жұмыста конденсациялау әдісі қолданылады.</p>
+
+            <h4>Қажетті құрал-жабдықтар</h4>
+            <ul>
+                <li>Химиялық стақандар (50-100 мл)</li>
+                <li>Пипеткалар</li>
+                <li>Шыны таяқша</li>
+                <li>Тамшуыр</li>
+                <li>Микроскоп (қажет болса)</li>
+            </ul>
+
+            <h4>Реактивтер</h4>
+            <ul>
+                <li>Темір (III) хлоридінің концентрлі ерітіндісі (FeCl₃)</li>
+                <li>Дистилденген су</li>
+                <li>Күкірт қышқылы (H₂SO₄) — сұйытылған</li>
+            </ul>
+
+            <div class="safety-block">
+                <div class="safety-title"> Қауіпсіздік ережесі</div>
+                <ul>
+                    <li>Реактивтермен жұмыс кезінде қорғаныс көзілдірігін киіңіз;</li>
+                    <li>Қышқылдармен абайлап жұмыс істеңіз;</li>
+                    <li>Шыны ыдыстарды абайлап ұстаңыз;</li>
+                    <li>Төтенше жағдайда оқытушыға хабарласыңыз.</li>
+                </ul>
+            </div>
+
+            <h4>Жұмыстың орындалу тәртібі</h4>
+            <ol>
+                <li>Таза стақанға 50 мл дистилденген су құйыңыз.</li>
+                <li>Суға 1-2 тамшы FeCl₃ ерітіндісін тамызыңыз.</li>
+                <li>Ерітіндіні шыны таяқшамен араластырыңыз.</li>
+                <li>Алынған ерітіндінің түсін бақылаңыз.</li>
+                <li>Тиндал эффектісін бақылау үшін жарық сәулесін түсіріңіз.</li>
+            </ol>
+
+            <h4>Бақылау нәтижелері</h4>
+            <div class="lab-input-group">
+                <label>Ерітінді түсі:
+                    <input type="text" id="lab1-color" placeholder="Мысалы: қызыл-қоңыр">
+                </label>
+                <label>Тиндал эффектісі байқалды ма?
+                    <input type="text" id="lab1-tyndall" placeholder="Иә/Жоқ">
+                </label>
+            </div>
+
+            <h4>Есептеулер</h4>
+            <p>Ерітіндінің концентрациясын есептеу:</p>
+            <div class="lab-input-group">
+                <label>FeCl₃ массасы (г):
+                    <input type="number" id="lab1-mass" placeholder="0.1" step="0.01">
+                </label>
+                <label>Ерітінді көлемі (мл):
+                    <input type="number" id="lab1-volume" placeholder="50" step="1">
+                </label>
+            </div>
+            <button class="btn btn-primary" onclick="calculateLab1()">Есептеу</button>
+            <div class="lab-result" id="lab1-result"></div>
+
+            <h4>Қорытынды</h4>
+            <p>Алынған ерітінді — коллоидты жүйе. Тиндал эффектісінің байқалуы коллоидты бөлшектердің бар екенін дәлелдейді.</p>
+
+            <h4>Бақылау сұрақтары</h4>
+            <ol>
+                <li>Коллоидты ерітінділерді алудың қандай әдістері бар?</li>
+                <li>Тиндал эффектісі дегеніміз не?</li>
+                <li>Алынған ерітіндінің түсі неге қоңыр?</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- ========== №2 ЗЕРТХАНАЛЫҚ ЖҰМЫС ========== -->
+    <section class="section-page" id="page-lab2">
+        <h2> №2 зертханалық жұмыс</h2>
+        <div class="lab-work">
+            <div class="lab-work-header">
+                <span style="font-size: 2rem;"></span>
+                <h3>Коллоидты бөлшектердің зарядын анықтау</h3>
+            </div>
+
+            <h4>Жұмыстың мақсаты</h4>
+            <p>Коллоидты бөлшектердің электр зарядын анықтау әдістерін меңгеру.</p>
+
+            <h4>Теориялық негізі</h4>
+            <p>Коллоидты бөлшектер бетінде электр заряды болады. Бұл заряд бөлшектердің тұрақтылығын қамтамасыз етеді. Зарядтың таңбасын электр өрісіндегі бөлшектердің қозғалысы арқылы анықтауға болады.</p>
+
+            <h4>Қажетті құрал-жабдықтар</h4>
+            <ul>
+                <li>Электрофорез қондырғысы</li>
+                <li>Пипеткалар</li>
+                <li>Стақандар</li>
+            </ul>
+
+            <h4>Реактивтер</h4>
+            <ul>
+                <li>Темір (III) гидроксидінің золі</li>
+                <li>Дистилденген су</li>
+            </ul>
+
+            <div class="safety-block">
+                <div class="safety-title">⚠ Қауіпсіздік ережесі</div>
+                <ul>
+                    <li>Электр қондырғыларымен абайлап жұмыс істеңіз;</li>
+                    <li>Ылғал қолмен электр құрылғыларына тимеңіз;</li>
+                    <li>Оқытушының нұсқаулығына сәйкес әрекет етіңіз.</li>
+                </ul>
+            </div>
+
+            <h4>Жұмыстың орындалу тәртібі</h4>
+            <ol>
+                <li>Электрофорез қондырғысын дайындаңыз.</li>
+                <li>Коллоидты ерітіндіні қондырғыға орналастырыңыз.</li>
+                <li>Электр өрісін қосыңыз.</li>
+                <li>Бөлшектердің қозғалыс бағытын бақылаңыз.</li>
+                <li>Зарядтың таңбасын анықтаңыз.</li>
+            </ol>
+
+            <h4>Бақылау нәтижелері</h4>
+            <div class="lab-input-group">
+                <label>Бөлшектердің қозғалыс бағыты:
+                    <input type="text" id="lab2-direction" placeholder="Катодқа/Анодқа">
+                </label>
+                <label>Заряд таңбасы:
+                    <input type="text" id="lab2-charge" placeholder="Оң/Теріс">
+                </label>
+            </div>
+
+            <h4>Қорытынды</h4>
+            <p>Коллоидты бөлшектердің заряды олардың тұрақтылығында маңызды рөл атқарады.</p>
+
+            <h4>Бақылау сұрақтары</h4>
+            <ol>
+                <li>Коллоидты бөлшектердің заряды қалай пайда болады?</li>
+                <li>Электрофорез дегеніміз не?</li>
+                <li>Зарядтың тұрақтылыққа әсері қандай?</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- ========== №3 ЗЕРТХАНАЛЫҚ ЖҰМЫС ========== -->
+    <section class="section-page" id="page-lab3">
+        <h2> №3 зертханалық жұмыс</h2>
+        <div class="lab-work">
+            <div class="lab-work-header">
+                <span style="font-size: 2rem;"></span>
+                <h3>Коллоидты жүйелердің оптикалық қасиеттері</h3>
+            </div>
+
+            <h4>Жұмыстың мақсаты</h4>
+            <p>Коллоидты жүйелердің оптикалық қасиеттерін, соның ішінде Тиндал эффектісін зерттеу.</p>
+
+            <h4>Теориялық негізі</h4>
+            <p>Коллоидты бөлшектер жарық сәулесін шашыратады. Бұл құбылыс Тиндал эффектісі деп аталады. Тиндал эффектісі коллоидты жүйелерді нағыз ерітінділерден ажыратуға мүмкіндік береді.</p>
+
+            <h4>Қажетті құрал-жабдықтар</h4>
+            <ul>
+                <li>Лазер немесе жарық көзі</li>
+                <li>Кюветалар</li>
+                <li>Қараңғы бөлме</li>
+            </ul>
+
+            <h4>Реактивтер</h4>
+            <ul>
+                <li>Коллоидты ерітінділер (әртүрлі)</li>
+                <li>Нағыз ерітінділер (салыстыру үшін)</li>
+            </ul>
+
+            <div class="safety-block">
+                <div class="safety-title"> Қауіпсіздік ережесі</div>
+                <ul>
+                    <li>Лазер сәулесін көзге түсірмеңіз;</li>
+                    <li>Шыны кюветаларды абайлап ұстаңыз;</li>
+                    <li>Қараңғы бөлмеде абай болыңыз.</li>
+                </ul>
+            </div>
+
+            <h4>Жұмыстың орындалу тәртібі</h4>
+            <ol>
+                <li>Кюветаға коллоидты ерітінді құйыңыз.</li>
+                <li>Жарық сәулесін ерітінді арқылы өткізіңіз.</li>
+                <li>Шашыраған жарықты бақылаңыз.</li>
+                <li>Нағыз ерітіндімен салыстырыңыз.</li>
+                <li>Нәтижелерді жазыңыз.</li>
+            </ol>
+
+            <h4>Бақылау нәтижелері</h4>
+            <div class="lab-input-group">
+                <label>Коллоидты ерітіндіде Тиндал эффектісі:
+                    <input type="text" id="lab3-colloid" placeholder="Байқалады/Байқалмайды">
+                </label>
+                <label>Нағыз ерітіндіде Тиндал эффектісі:
+                    <input type="text" id="lab3-true" placeholder="Байқалады/Байқалмайды">
+                </label>
+            </div>
+
+            <h4>Қорытынды</h4>
+            <p>Тиндал эффектісі коллоидты жүйелердің ерекшелігі болып табылады және оларды нағыз ерітінділерден ажыратуға мүмкіндік береді.</p>
+
+            <h4>Бақылау сұрақтары</h4>
+            <ol>
+                <li>Тиндал эффектісінің себебі неде?</li>
+                <li>Коллоидты және нағыз ерітінділерді қалай ажыратуға болады?</li>
+                <li>Тиндал эффектісінің практикалық маңызы қандай?</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- ========== І ТАРАУ ТЕСТІ ========== -->
+    <section class="section-page" id="page-quiz1">
+        <h2> І тарау тесті</h2>
+        <div class="quiz-container" id="quiz1-container">
+            <p class="mb-2">Әр сұраққа дұрыс жауапты таңдаңыз.</p>
+            <div id="quiz1-questions"></div>
+            <button class="btn btn-primary mt-2" onclick="checkQuiz('quiz1')">Жауаптарды тексеру</button>
+            <div class="quiz-result" id="quiz1-result" style="display: none;"></div>
+        </div>
+    </section>
+
+    <!-- ========== ІІ ТАРАУ ТЕОРИЯ ========== -->
+    <section class="section-page" id="page-ch2-theory">
+        <h2> ІІ ТАРАУ. Беттік құбылыстар мен адсорбция</h2>
+        <div class="card">
+            <h3>Тараудың мақсаты</h3>
+            <p>Беттік керілу және адсорбция құбылыстарын түсіндіру, олардың практикалық маңызын көрсету.</p>
+
+            <h3>Күтілетін оқу нәтижелері</h3>
+            <ul>
+                <li>Беттік керілу ұғымын түсіну;</li>
+                <li>Адсорбция мен абсорбцияны ажырату;</li>
+                <li>Адсорбция изотермасын талдау;</li>
+                <li>Адсорбцияға қатысты есептер шығару.</li>
+            </ul>
+
+            <h3>2.1. Беттік керілу</h3>
+            <div class="definition">
+                <span class="term">Беттік керілу</span> — сұйықтық бетінің аудан бірлігін ұлғайтуға жұмсалатын жұмыс немесе бетке параллель әсер ететін күш.
+            </div>
+            <div class="simple-explain">
+                Су бетіндегі молекулалар ішке қарай тартылады, сондықтан су беті "қабықша" сияқты болады. Мысалы, суға ине салса, ол батпайды.
+            </div>
+
+            <h4>Формула:</h4>
+            <div class="formula-card" onclick="this.classList.toggle('expanded')">
+                <div class="formula-name">Беттік керілу</div>
+                <div class="formula-display">$$\sigma = \frac{F}{l}$$</div>
+                <div class="toggle-hint">Толық ақпарат үшін басыңыз ▼</div>
+                <div class="formula-meta">
+                    <p><strong>Мұндағы:</strong></p>
+                    <ul>
+                        <li>\(\sigma\) — беттік керілу, Н/м</li>
+                        <li>\(F\) — беттік керілу күші, Н</li>
+                        <li>\(l\) — беттің ұзындығы, м</li>
+                    </ul>
+                    <p><strong>Мысал:</strong> Судың беттік керілуі 20°C-та 72.8 мН/м.</p>
+                </div>
+            </div>
+
+            <h3>2.2. Адсорбциялық құбылыстың жалпы сипаттамасы</h3>
+            <div class="definition">
+                <span class="term">Адсорбция</span> — бір заттың бетінде екінші заттың жинақталуы.
+            </div>
+            <div class="definition">
+                <span class="term">Абсорбция</span> — заттың басқа заттың көлемі бойынша сіңірілуі.
+            </div>
+            <div class="definition">
+                <span class="term">Десорбция</span> — адсорбцияланған заттың беттен бөлінуі.
+            </div>
+
+            <h3>2.3. Адсорбция изотермасы</h3>
+            <p>Адсорбция изотермасы — тұрақты температурада адсорбция мөлшерінің концентрацияға тәуелділігі.</p>
+            
+            <h4>Ленгмюр изотермасы:</h4>
+            <div class="formula-card" onclick="this.classList.toggle('expanded')">
+                <div class="formula-name">Ленгмюр теңдеуі</div>
+                <div class="formula-display">$$A = A_\infty \frac{Kc}{1 + Kc}$$</div>
+                <div class="toggle-hint">Толық ақпарат үшін басыңыз ▼</div>
+                <div class="formula-meta">
+                    <p><strong>Мұндағы:</strong></p>
+                    <ul>
+                        <li>\(A\) — адсорбция мөлшері, моль/г</li>
+                        <li>\(A_\infty\) — шекті адсорбция, моль/г</li>
+                        <li>\(K\) — адсорбциялық тепе-теңдік константасы</li>
+                        <li>\(c\) — тепе-теңдік концентрациясы, моль/л</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>2.4. Бақылау сұрақтары</h3>
+            <ol>
+                <li>Беттік керілу дегеніміз не?</li>
+                <li>Адсорбция мен абсорбцияның айырмашылығы неде?</li>
+                <li>Ленгмюр изотермасының графигі қандай?</li>
+                <li>Адсорбцияның практикалық маңызы қандай?</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- ========== ІІ ТАРАУ ЕСЕПТЕРІ ========== -->
+    <section class="section-page" id="page-ch2-problems">
+        <h2> ІІ ТАРАУ. Типтік есептер</h2>
+        
+        <div class="problem">
+            <div class="problem-header">
+                <span class="problem-number">Есеп №1</span>
+                <span class="badge badge-primary">Беттік керілу</span>
+            </div>
+            <div class="problem-body">
+                <div class="problem-section">
+                    <strong>Берілгені:</strong>
+                    <p>Судың беттік керілуі 72.8 мН/м. Ұзындығы 5 см сымға әсер ететін күшті табыңыз.</p>
+                </div>
+                <div class="problem-section">
+                    <strong>Табу керек:</strong>
+                    <p>\(F\) — беттік керілу күші</p>
+                </div>
+                <div class="problem-section">
+                    <strong>Формула:</strong>
+                    <p>\(F = \sigma \cdot l\)</p>
+                </div>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="toggleSolution(this)">Шешуін көрсету</button>
+            <div class="solution">
+                <p><strong>Шешуі:</strong></p>
+                <p>\(\sigma = 72.8\) мН/м \(= 72.8 \times 10^{-3}\) Н/м</p>
+                <p>\(l = 5\) см \(= 0.05\) м</p>
+                <p>\(F = 72.8 \times 10^{-3} \times 0.05 = 3.64 \times 10^{-3}\) Н \(= 3.64\) мН</p>
+                <p><strong>Жауабы:</strong> \(F = 3.64\) мН</p>
+            </div>
+        </div>
+
+        <div class="problem">
+            <div class="problem-header">
+                <span class="problem-number">Есеп №2</span>
+                <span class="badge badge-secondary">Адсорбция</span>
+            </div>
+            <div class="problem-body">
+                <div class="problem-section">
+                    <strong>Берілгені:</strong>
+                    <p>Ленгмюр теңдеуі бойынша \(A_\infty = 2 \times 10^{-4}\) моль/г, \(K = 0.5\) л/моль. Концентрация \(c = 0.1\) моль/л болғандағы адсорбцияны есептеңіз.</p>
+                </div>
+                <div class="problem-section">
+                    <strong>Табу керек:</strong>
+                    <p>\(A\) — адсорбция мөлшері</p>
+                </div>
+                <div class="problem-section">
+                    <strong>Формула:</strong>
+                    <p>\(A = A_\infty \frac{Kc}{1 + Kc}\)</p>
+                </div>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="toggleSolution(this)">Шешуін көрсету</button>
+            <div class="solution">
+                <p><strong>Шешуі:</strong></p>
+                <p>\(Kc = 0.5 \times 0.1 = 0.05\)</p>
+                <p>\(A = 2 \times 10^{-4} \times \frac{0.05}{1 + 0.05} = 2 \times 10^{-4} \times \frac{0.05}{1.05}\)</p>
+                <p>\(A = 2 \times 10^{-4} \times 0.0476 = 9.52 \times 10^{-6}\) моль/г</p>
+                <p><strong>Жауабы:</strong> \(A = 9.52 \times 10^{-6}\) моль/г</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== №4 ЗЕРТХАНАЛЫҚ ЖҰМЫС ========== -->
+    <section class="section-page" id="page-lab4">
+        <h2> №4 зертханалық жұмыс</h2>
+        <div class="lab-work">
+            <div class="lab-work-header">
+                <span style="font-size: 2rem;"></span>
+                <h3>Беттік керілуді анықтау</h3>
+            </div>
+
+            <h4>Жұмыстың мақсаты</h4>
+            <p>Әртүрлі сұйықтықтардың беттік керілуін анықтау әдістерін меңгеру.</p>
+
+            <h4>Теориялық негізі</h4>
+            <p>Беттік керілу сұйықтықтың табиғатына және температураға тәуелді. Беттік керілуді сталагмометр немесе тамшы санау әдісімен анықтауға болады.</p>
+
+            <h4>Қажетті құрал-жабдықтар</h4>
+            <ul>
+                <li>Сталагмометр</li>
+                <li>Пипеткалар</li>
+                <li>Стақандар</li>
+                <li>Термометр</li>
+            </ul>
+
+            <h4>Реактивтер</h4>
+            <ul>
+                <li>Дистилденген су</li>
+                <li>Этил спирті</li>
+                <li>Сабын ерітіндісі</li>
+            </ul>
+
+            <div class="safety-block">
+                <div class="safety-title">⚠ Қауіпсіздік ережесі</div>
+                <ul>
+                    <li>Спиртпен жұмыс кезінде желдетуді қамтамасыз етіңіз;</li>
+                    <li>Шыны құралдарды абайлап ұстаңыз;</li>
+                    <li>Термометрді абайлап пайдаланыңыз.</li>
+                </ul>
+            </div>
+
+            <h4>Жұмыстың орындалу тәртібі</h4>
+            <ol>
+                <li>Сталагмометрді дистилденген сумен шайыңыз.</li>
+                <li>Сталагмометрге суды толтырыңыз.</li>
+                <li>Тамшыларды санаңыз.</li>
+                <li>Сол әдіспен спирт пен сабын ерітіндісін де өлшеңіз.</li>
+                <li>Нәтижелерді салыстырыңыз.</li>
+            </ol>
+
+            <h4>Бақылау нәтижелері</h4>
+            <div class="lab-input-group">
+                <label>Су тамшыларының саны:
+                    <input type="number" id="lab4-water" placeholder="50">
+                </label>
+                <label>Спирт тамшыларының саны:
+                    <input type="number" id="lab4-alcohol" placeholder="70">
+                </label>
+                <label>Сабын тамшыларының саны:
+                    <input type="number" id="lab4-soap" placeholder="30">
+                </label>
+            </div>
+
+            <h4>Есептеулер</h4>
+            <button class="btn btn-primary" onclick="calculateLab4()">Есептеу</button>
+            <div class="lab-result" id="lab4-result"></div>
+
+            <h4>Қорытынды</h4>
+            <p>Беттік керілу заттың табиғатына байланысты өзгереді. Сабын беттік керілуді азайтады.</p>
+
+            <h4>Бақылау сұрақтары</h4>
+            <ol>
+                <li>Беттік керілуді анықтаудың қандай әдістері бар?</li>
+                <li>Температура беттік керілуге қалай әсер етеді?</li>
+                <li>Сабын неге беттік керілуді азайтады?</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- ========== №5 ЗЕРТХАНАЛЫҚ ЖҰМЫС ========== -->
+    <section class="section-page" id="page-lab5">
+        <h2> №5 зертханалық жұмыс</h2>
+        <div class="lab-work">
+            <div class="lab-work-header">
+                <span style="font-size: 2rem;"></span>
+                <h3>Адсорбцияны зерттеу</h3>
+            </div>
+
+            <h4>Жұмыстың мақсаты</h4>
+            <p>Белсендірілген көмірдің адсорбциялық қабілетін зерттеу.</p>
+
+            <h4>Теориялық негізі</h4>
+            <p>Белсендірілген көмір үлкен беттік ауданға ие, сондықтан жақсы адсорбент болып табылады. Адсорбция мөлшері адсорбент массасына, концентрацияға және температураға тәуелді.</p>
+
+            <h4>Қажетті құрал-жабдықтар</h4>
+            <ul>
+                <li>Стақандар</li>
+                <li>Сүзгіш қағаз</li>
+                <li>Шөміш</li>
+                <li>Таразы</li>
+                <li>Колориметр (қажет болса)</li>
+            </ul>
+
+            <h4>Реактивтер</h4>
+            <ul>
+                <li>Белсендірілген көмір</li>
+                <li>Метилен көгінің ерітіндісі</li>
+                <li>Дистилденген су</li>
+            </ul>
+
+            <div class="safety-block">
+                <div class="safety-title"> Қауіпсіздік ережесі</div>
+                <ul>
+                    <li>Белсендірілген көмір шаңын жұтпаңыз;</li>
+                    <li>Бояулармен жұмыс кезінде қолғап киіңіз;</li>
+                    <li>Шыны ыдыстарды абайлап ұстаңыз.</li>
+                </ul>
+            </div>
+
+            <h4>Жұмыстың орындалу тәртібі</h4>
+            <ol>
+                <li>Әртүрлі концентрациялы метилен көгі ерітінділерін дайындаңыз.</li>
+                <li>Әр ерітіндіге белгілі мөлшерде белсендірілген көмір қосыңыз.</li>
+                <li>Белгілі уақыт аралығында ұстаңыз.</li>
+                <li>Ерітінділерді сүзіңіз.</li>
+                <li>Сүзіндінің түсін бақылаңыз.</li>
+            </ol>
+
+            <h4>Бақылау нәтижелері</h4>
+            <div class="lab-input-group">
+                <label>Бастапқы концентрация (мг/л):
+                    <input type="number" id="lab5-c0" placeholder="10">
+                </label>
+                <label>Соңғы концентрация (мг/л):
+                    <input type="number" id="lab5-c1" placeholder="4">
+                </label>
+                <label>Адсорбент массасы (г):
+                    <input type="number" id="lab5-mass" placeholder="1" step="0.1">
+                </label>
+                <label>Ерітінді көлемі (мл):
+                    <input type="number" id="lab5-volume" placeholder="50">
+                </label>
+            </div>
+
+            <h4>Есептеулер</h4>
+            <button class="btn btn-primary" onclick="calculateLab5()">Есептеу</button>
+            <div class="lab-result" id="lab5-result"></div>
+
+            <h4>Қорытынды</h4>
+            <p>Белсендірілген көмір метилен көгін жақсы адсорбциялайды. Адсорбция мөлшері бастапқы және соңғы концентрациялар айырмасы арқылы есептеледі.</p>
+
+            <h4>Бақылау сұрақтары</h4>
+            <ol>
+                <li>Адсорбция дегеніміз не?</li>
+                <li>Белсендірілген көмір неге жақсы адсорбент?</li>
+                <li>Адсорбцияға температураның әсері қандай?</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- ========== ІІ ТАРАУ ТЕСТІ ========== -->
+    <section class="section-page" id="page-quiz2">
+        <h2> ІІ тарау тесті</h2>
+        <div class="quiz-container" id="quiz2-container">
+            <p class="mb-2">Әр сұраққа дұрыс жауапты таңдаңыз.</p>
+            <div id="quiz2-questions"></div>
+            <button class="btn btn-primary mt-2" onclick="checkQuiz('quiz2')">Жауаптарды тексеру</button>
+            <div class="quiz-result" id="quiz2-result" style="display: none;"></div>
+        </div>
+    </section>
+
+    <!-- ========== ІІІ ТАРАУ ТЕОРИЯ ========== -->
+    <section class="section-page" id="page-ch3-theory">
+        <h2> ІІІ ТАРАУ. Молекула-кинетикалық қасиеттер</h2>
+        <div class="card">
+            <h3>Тараудың мақсаты</h3>
+            <p>Коллоидты жүйелердің молекула-кинетикалық қасиеттерін: Броундық қозғалыс, диффузия, флуктуация және седиментацияны түсіндіру.</p>
+
+            <h3>Күтілетін оқу нәтижелері</h3>
+            <ul>
+                <li>Броундық қозғалыстың мәнін түсіну;</li>
+                <li>Диффузия және флуктуация ұғымдарын меңгеру;</li>
+                <li>Седиментация құбылысын түсіну;</li>
+                <li>Осы құбылыстарға қатысты есептер шығару.</li>
+            </ul>
+
+            <h3>3.1. Броундық қозғалыс</h3>
+            <div class="definition">
+                <span class="term">Броундық қозғалыс</span> — сұйықтықтағы немесе газдағы ұсақ бөлшектердің молекулалардың соқтығысуы әсерінен үздіксіз, ретсіз қозғалысы.
+            </div>
+            <div class="simple-explain">
+                Судағы шаң бөлшектерінің ретсіз қозғалысы. Олар су молекулаларының соқтығысуынан қозғалады.
+            </div>
+
+            <h4>Броундық қозғалыс теңдеуі:</h4>
+            <div class="formula-card" onclick="this.classList.toggle('expanded')">
+                <div class="formula-name">Орташа квадраттық ығысу</div>
+                <div class="formula-display">$$\overline{x^2} = 2Dt$$</div>
+                <div class="toggle-hint">Толық ақпарат үшін басыңыз ▼</div>
+                <div class="formula-meta">
+                    <p><strong>Мұндағы:</strong></p>
+                    <ul>
+                        <li>\(\overline{x^2}\) — орташа квадраттық ығысу, м²</li>
+                        <li>\(D\) — диффузия коэффициенті, м²/с</li>
+                        <li>\(t\) — уақыт, с</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>3.2. Диффузия және флуктуация</h3>
+            <div class="definition">
+                <span class="term">Диффузия</span> — заттың концентрациясы жоғары аймақтан төмен аймаққа таралуы.
+            </div>
+            <div class="definition">
+                <span class="term">Флуктуация</span> — жүйедегі шамалардың (концентрация, тығыздық) кездейсоқ ауытқуы.
+            </div>
+
+            <h4>Фик теңдеуі:</h4>
+            <div class="formula-card" onclick="this.classList.toggle('expanded')">
+                <div class="formula-name">Фик теңдеуі</div>
+                <div class="formula-display">$$J = -D \frac{dc}{dx}$$</div>
+                <div class="toggle-hint">Толық ақпарат үшін басыңыз ▼</div>
+                <div class="formula-meta">
+                    <p><strong>Мұндағы:</strong></p>
+                    <ul>
+                        <li>\(J\) — диффузиялық ағын, моль/(м²·с)</li>
+                        <li>\(D\) — диффузия коэффициенті, м²/с</li>
+                        <li>\(\frac{dc}{dx}\) — концентрация градиенті</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>3.3. Седиментация</h3>
+            <div class="definition">
+                <span class="term">Седиментация</span> — дисперстік фаза бөлшектерінің ауырлық күші әсерінен тұнбаға түсуі.
+            </div>
+            <div class="simple-explain">
+                Бөлшектер ауыр болса, олар төмен қарай шөгеді. Мысалы, құм суда тұнбаға түседі.
+            </div>
+
+            <h3>3.4. Бақылау сұрақтары</h3>
+            <ol>
+                <li>Броундық қозғалыс дегеніміз не?</li>
+                <li>Диффузия мен флуктуацияның айырмашылығы неде?</li>
+                <li>Седиментация қандай жағдайда жүреді?</li>
+                <li>Броундық қозғалыс қандай факторларға тәуелді?</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- ========== ІІІ ТАРАУ ЕСЕПТЕРІ ========== -->
+    <section class="section-page" id="page-ch3-problems">
+        <h2> ІІІ ТАРАУ. Седиментация есептері</h2>
+        
+        <div class="problem">
+            <div class="problem-header">
+                <span class="problem-number">Есеп №1</span>
+                <span class="badge badge-primary">Седиментация</span>
+            </div>
+            <div class="problem-body">
+                <div class="problem-section">
+                    <strong>Берілгені:</strong>
+                    <p>Бөлшек радиусы \(r = 10^{-6}\) м, тығыздығы \(\rho = 2000\) кг/м³. Ортаның тығыздығы \(\rho_0 = 1000\) кг/м³, тұтқырлығы \(\eta = 10^{-3}\) Па·с. Седиментация жылдамдығын табыңыз.</p>
+                </div>
+                <div class="problem-section">
+                    <strong>Табу керек:</strong>
+                    <p>\(v\) — седиментация жылдамдығы</p>
+                </div>
+                <div class="problem-section">
+                    <strong>Формула:</strong>
+                    <p>\(v = \frac{2r^2(\rho - \rho_0)g}{9\eta}\)</p>
+                </div>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="toggleSolution(this)">Шешуін көрсету</button>
+            <div class="solution">
+                <p><strong>Шешуі:</strong></p>
+                <p>\(v = \frac{2 \times (10^{-6})^2 \times (2000 - 1000) \times 9.81}{9 \times 10^{-3}}\)</p>
+                <p>\(v = \frac{2 \times 10^{-12} \times 1000 \times 9.81}{9 \times 10^{-3}}\)</p>
+                <p>\(v = \frac{1.962 \times 10^{-8}}{9 \times 10^{-3}} = 2.18 \times 10^{-6}\) м/с</p>
+                <p><strong>Жауабы:</strong> \(v = 2.18 \times 10^{-6}\) м/с</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== №6 ЗЕРТХАНАЛЫҚ ЖҰМЫС ========== -->
+    <section class="section-page" id="page-lab6">
+        <h2> №6 зертханалық жұмыс</h2>
+        <div class="lab-work">
+            <div class="lab-work-header">
+                <span style="font-size: 2rem;"></span>
+                <h3>Броундық қозғалысты бақылау</h3>
+            </div>
+
+            <h4>Жұмыстың мақсаты</h4>
+            <p>Микроскоп арқылы коллоидты бөлшектердің Броундық қозғалысын бақылау.</p>
+
+            <h4>Теориялық негізі</h4>
+            <p>Броундық қозғалыс — коллоидты бөлшектердің молекулалармен соқтығысуы нәтижесінде пайда болатын ретсіз қозғалыс. Бұл қозғалыс температураға және бөлшек мөлшеріне тәуелді.</p>
+
+            <h4>Қажетті құрал-жабдықтар</h4>
+            <ul>
+                <li>Микроскоп</li>
+                <li>Заттық шыны</li>
+                <li>Жабынды шыны</li>
+                <li>Пипетка</li>
+            </ul>
+
+            <h4>Реактивтер</h4>
+            <ul>
+                <li>Коллоидты ерітінді (мыс немесе күміс золі)</li>
+                <li>Глицерин</li>
+            </ul>
+
+            <div class="safety-block">
+                <div class="safety-title">⚠ Қауіпсіздік ережесі</div>
+                <ul>
+                    <li>Микроскопты абайлап пайдаланыңыз;</li>
+                    <li>Шыны заттық шыныны абайлап ұстаңыз;</li>
+                    <li>Оқытушының нұсқаулығына сәйкес әрекет етіңіз.</li>
+                </ul>
+            </div>
+
+            <h4>Жұмыстың орындалу тәртібі</h4>
+            <ol>
+                <li>Заттық шыныға коллоидты ерітіндінің бір тамшысын тамызыңыз.</li>
+                <li>Жабынды шынымен жабыңыз.</li>
+                <li>Микроскопқа орналастырыңыз.</li>
+                <li>Броундық қозғалысты бақылаңыз.</li>
+                <li>Бөлшектердің қозғалыс траекториясын сызыңыз.</li>
+            </ol>
+
+            <h4>Бақылау нәтижелері</h4>
+            <div class="lab-input-group">
+                <label>Бөлшектердің қозғалысы байқалды ма?
+                    <input type="text" id="lab6-motion" placeholder="Иә/Жоқ">
+                </label>
+                <label>Қозғалыс қарқындылығы:
+                    <input type="text" id="lab6-intensity" placeholder="Жоғары/Орташа/Төмен">
+                </label>
+            </div>
+
+            <h4>Қорытынды</h4>
+            <p>Броундық қозғалыс коллоидты бөлшектердің молекулалық-кинетикалық қасиеттерінің бір көрінісі болып табылады.</p>
+
+            <h4>Бақылау сұрақтары</h4>
+            <ol>
+                <li>Броундық қозғалыстың себебі неде?</li>
+                <li>Температура Броундық қозғалысқа қалай әсер етеді?</li>
+                <li>Бөлшек мөлшері қозғалысқа қалай әсер етеді?</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- ========== ІІІ ТАРАУ ТЕСТІ ========== -->
+    <section class="section-page" id="page-quiz3">
+        <h2> ІІІ тарау тесті</h2>
+        <div class="quiz-container" id="quiz3-container">
+            <p class="mb-2">Әр сұраққа дұрыс жауапты таңдаңыз.</p>
+            <div id="quiz3-questions"></div>
+            <button class="btn btn-primary mt-2" onclick="checkQuiz('quiz3')">Жауаптарды тексеру</button>
+            <div class="quiz-result" id="quiz3-result" style="display: none;"></div>
+        </div>
+    </section>
+
+    <!-- ========== IV ТАРАУ ТЕОРИЯ ========== -->
+    <section class="section-page" id="page-ch4-theory">
+        <h2> IV ТАРАУ. Коллоидты жүйелерді алу және тазалау</h2>
+        <div class="card">
+            <h3>Тараудың мақсаты</h3>
+            <p>Коллоидты жүйелерді алу және тазалау әдістерін меңгерту.</p>
+
+            <h3>Күтілетін оқу нәтижелері</h3>
+            <ul>
+                <li>Коллоидты жүйелерді алу әдістерін білу;</li>
+                <li>Тазалау әдістерін түсіну;</li>
+                <li>Практикалық дағдыларды меңгеру.</li>
+            </ul>
+
+            <h3>4.1. Коллоидты-дисперсті жүйелерді алу</h3>
+            <p>Коллоидты жүйелерді алудың екі негізгі әдісі бар:</p>
+            <div class="definition">
+                <span class="term">Диспергациялау әдісі</span> — ірі бөлшектерді ұсақтау арқылы коллоидты жүйе алу.
+            </div>
+            <div class="definition">
+                <span class="term">Конденсациялау әдісі</span> — молекулалардың іріктелуі арқылы коллоидты бөлшектер түзу.
+            </div>
+
+            <h3>4.2. Коллоидты жүйелерді тазалау</h3>
+            <p>Коллоидты жүйелерді тазалау әдістері:</p>
+            <ul>
+                <li><strong>Диализ</strong> — жартылай өткізгіш мембрана арқылы қоспаларды бөлу;</li>
+                <li><strong>Ультрафильтрация</strong> — қысым арқылы сүзу;</li>
+                <li><strong>Электродиализ</strong> — электр өрісін қолдану.</li>
+            </ul>
+
+            <h3>4.3. Бақылау сұрақтары</h3>
+            <ol>
+                <li>Коллоидты жүйелерді алудың қандай әдістері бар?</li>
+                <li>Диализ дегеніміз не?</li>
+                <li>Ультрафильтрацияның диализден айырмашылығы неде?</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- ========== №7-8 ЗЕРТХАНАЛЫҚ ЖҰМЫСТАР ========== -->
+    <section class="section-page" id="page-lab7">
+        <h2>№7–8 зертханалық жұмыстар</h2>
+        <div class="lab-work">
+            <div class="lab-work-header">
+                <span style="font-size: 2rem;"></span>
+                <h3>Коллоидты жүйелерді алу және тазалау</h3>
+            </div>
+
+            <h4>Жұмыстың мақсаты</h4>
+            <p>Коллоидты жүйелерді алу және тазалау әдістерін практикалық түрде меңгеру.</p>
+
+            <h4>Теориялық негізі</h4>
+            <p>Коллоидты жүйелерді конденсациялау әдісімен алуға болады. Алынған жүйелерді қоспалардан тазалау үшін диализ әдісі қолданылады.</p>
+
+            <h4>Қажетті құрал-жабдықтар</h4>
+            <ul>
+                <li>Стақандар</li>
+                <li>Диализ қағазы</li>
+                <li>Пипеткалар</li>
+                <li>Сүзгіш қағаз</li>
+            </ul>
+
+            <h4>Реактивтер</h4>
+            <ul>
+                <li>Күміс нитраты (AgNO₃)</li>
+                <li>Натрий хлориді (NaCl)</li>
+                <li>Дистилденген су</li>
+            </ul>
+
+            <div class="safety-block">
+                <div class="safety-title"> Қауіпсіздік ережесі</div>
+                <ul>
+                    <li>Күміс нитратымен жұмыс кезінде қолғап киіңіз;</li>
+                    <li>Диализ қағазын абайлап пайдаланыңыз;</li>
+                    <li>Оқытушының нұсқаулығына сәйкес әрекет етіңіз.</li>
+                </ul>
+            </div>
+
+            <h4>Жұмыстың орындалу тәртібі</h4>
+            <ol>
+                <li>AgNO₃ ерітіндісін дайындаңыз.</li>
+                <li>NaCl ерітіндісін қосып, күміс хлоридінің золін алыңыз.</li>
+                <li>Алынған зольді диализ қағазына орналастырыңыз.</li>
+                <li>Дистилденген суда диализ жүргізіңіз.</li>
+                <li>Қоспалардың кетуін бақылаңыз.</li>
+            </ol>
+
+            <h4>Бақылау нәтижелері</h4>
+            <div class="lab-input-group">
+                <label>Алынған зольдің түсі:
+                    <input type="text" id="lab7-color" placeholder="Ақ/Сұр">
+                </label>
+                <label>Диализ уақыты (сағат):
+                    <input type="number" id="lab7-time" placeholder="24">
+                </label>
+            </div>
+
+            <h4>Қорытынды</h4>
+            <p>Коллоидты жүйелерді алу және тазалау әдістері практикалық маңызға ие.</p>
+
+            <h4>Бақылау сұрақтары</h4>
+            <ol>
+                <li>Коллоидты жүйелерді алудың қандай әдістері бар?</li>
+                <li>Диализ қалай жүргізіледі?</li>
+                <li>Тазалаудың маңызы неде?</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- ========== №9 ЗЕРТХАНАЛЫҚ ЖҰМЫС ========== -->
+    <section class="section-page" id="page-lab9">
+        <h2>№9 зертханалық жұмыс</h2>
+        <div class="lab-work">
+            <div class="lab-work-header">
+                <span style="font-size: 2rem;"></span>
+                <h3>Коллоидты жүйелердің тұрақтылығын зерттеу</h3>
+            </div>
+
+            <h4>Жұмыстың мақсаты</h4>
+            <p>Коллоидты жүйелердің тұрақтылығына әсер ететін факторларды зерттеу.</p>
+
+            <h4>Теориялық негізі</h4>
+            <p>Коллоидты жүйелердің тұрақтылығы бөлшектердің зарядына, беттік қабатқа және ортаның қасиеттеріне байланысты.</p>
+
+            <h4>Қажетті құрал-жабдықтар</h4>
+            <ul>
+                <li>Стақандар</li>
+                <li>Пипеткалар</li>
+                <li>Термометр</li>
+            </ul>
+
+            <h4>Реактивтер</h4>
+            <ul>
+                <li>Коллоидты ерітінді</li>
+                <li>Электролит ерітіндісі</li>
+                <li>Дистилденген су</li>
+            </ul>
+
+            <div class="safety-block">
+                <div class="safety-title"> Қауіпсіздік ережесі</div>
+                <ul>
+                    <li>Электролиттермен абайлап жұмыс істеңіз;</li>
+                    <li>Шыны ыдыстарды абайлап ұстаңыз;</li>
+                    <li>Оқытушының нұсқаулығына сәйкес әрекет етіңіз.</li>
+                </ul>
+            </div>
+
+            <h4>Жұмыстың орындалу тәртібі</h4>
+            <ol>
+                <li>Коллоидты ерітіндіні бірнеше стақанға бөліңіз.</li>
+                <li>Әр стақанға әртүрлі концентрациялы электролит қосыңыз.</li>
+                <li>Коагуляция басталуын бақылаңыз.</li>
+                <li>Нәтижелерді жазыңыз.</li>
+            </ol>
+
+            <h4>Бақылау нәтижелері</h4>
+            <div class="lab-input-group">
+                <label>Коагуляция басталған электролит концентрациясы:
+                    <input type="text" id="lab9-conc" placeholder="0.1 М">
+                </label>
+                <label>Коагуляция уақыты:
+                    <input type="text" id="lab9-time" placeholder="5 мин">
+                </label>
+            </div>
+
+            <h4>Қорытынды</h4>
+            <p>Электролиттер коллоидты жүйелердің тұрақтылығын төмендетеді.</p>
+
+            <h4>Бақылау сұрақтары</h4>
+            <ol>
+                <li>Коллоидты жүйелердің тұрақтылығы неде?</li>
+                <li>Электролиттер қалай әсер етеді?</li>
+                <li>Коагуляция дегеніміз не?</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- ========== IV ТАРАУ ТЕСТІ ========== -->
+    <section class="section-page" id="page-quiz4">
+        <h2> IV тарау тесті</h2>
+        <div class="quiz-container" id="quiz4-container">
+            <p class="mb-2">Әр сұраққа дұрыс жауапты таңдаңыз.</p>
+            <div id="quiz4-questions"></div>
+            <button class="btn btn-primary mt-2" onclick="checkQuiz('quiz4')">Жауаптарды тексеру</button>
+            <div class="quiz-result" id="quiz4-result" style="display: none;"></div>
+        </div>
+    </section>
+
+    <!-- ========== V ТАРАУ ТЕОРИЯ ========== -->
+    <section class="section-page" id="page-ch5-theory">
+        <h2> V ТАРАУ. Коагуляция және тұрақтандыру</h2>
+        <div class="card">
+            <h3>Тараудың мақсаты</h3>
+            <p>Коллоидты ерітінділердің коагуляциясы және тұрақтандыру құбылыстарын түсіндіру.</p>
+
+            <h3>Күтілетін оқу нәтижелері</h3>
+            <ul>
+                <li>Коагуляция ұғымын түсіну;</li>
+                <li>Ұю кинетикасын меңгеру;</li>
+                <li>Тұрақтандыру әдістерін білу;</li>
+                <li>Тұтқырлық туралы білім алу.</li>
+            </ul>
+
+            <h3>5.1. Коллоидты ерітінділердің коагуляциясы</h3>
+            <div class="definition">
+                <span class="term">Коагуляция</span> — коллоидты бөлшектердің бірігуі және тұнбаға түсуі.
+            </div>
+            <div class="simple-explain">
+                Бөлшектер бір-біріне жабысып, үлкен бөлшектер түзеді де, төмен шөгеді.
+            </div>
+
+            <h3>5.2. Ұю кинетикасы</h3>
+            <p>Коагуляция жылдамдығы электролит концентрациясына, температураға және басқа факторларға тәуелді.</p>
+
+            <h3>5.3. Коллоидты ерітінділердің тұтқырлығы</h3>
+            <div class="definition">
+                <span class="term">Тұтқырлық</span> — сұйықтықтың ағуға қарсылығы.
+            </div>
+
+            <h4>Эйнштейн теңдеуі:</h4>
+            <div class="formula-card" onclick="this.classList.toggle('expanded')">
+                <div class="formula-name">Эйнштейн теңдеуі</div>
+                <div class="formula-display">$$\eta = \eta_0 (1 + 2.5\varphi)$$</div>
+                <div class="toggle-hint">Толық ақпарат үшін басыңыз ▼</div>
+                <div class="formula-meta">
+                    <p><strong>Мұндағы:</strong></p>
+                    <ul>
+                        <li>\(\eta\) — коллоидты ерітіндінің тұтқырлығы</li>
+                        <li>\(\eta_0\) — таза ортаның тұтқырлығы</li>
+                        <li>\(\varphi\) — дисперстік фазаның көлемдік үлесі</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>5.4. Бақылау сұрақтары</h3>
+            <ol>
+                <li>Коагуляция дегеніміз не?</li>
+                <li>Коагуляцияға қандай факторлар әсер етеді?</li>
+                <li>Тұтқырлық дегеніміз не?</li>
+                <li>Эйнштейн теңдеуінің мағынасы неде?</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- ========== №10-11 ЗЕРТХАНАЛЫҚ ЖҰМЫСТАР ========== -->
+    <section class="section-page" id="page-lab10">
+        <h2> №10–11 зертханалық жұмыстар</h2>
+        <div class="lab-work">
+            <div class="lab-work-header">
+                <span style="font-size: 2rem;"></span>
+                <h3>Коагуляцияны зерттеу</h3>
+            </div>
+
+            <h4>Жұмыстың мақсаты</h4>
+            <p>Коллоидты ерітінділердің коагуляциясын зерттеу және коагуляция шегін анықтау.</p>
+
+            <h4>Теориялық негізі</h4>
+            <p>Коагуляция — коллоидты бөлшектердің бірігуі. Коагуляция шегі — коагуляция басталатын электролиттің ең аз концентрациясы.</p>
+
+            <h4>Қажетті құрал-жабдықтар</h4>
+            <ul>
+                <li>Стақандар</li>
+                <li>Пипеткалар</li>
+                <li>Бюретка</li>
+                <li>Секундомер</li>
+            </ul>
+
+            <h4>Реактивтер</h4>
+            <ul>
+                <li>Коллоидты ерітінді</li>
+                <li>Электролит ерітінділері (NaCl, CaCl₂, AlCl₃)</li>
+            </ul>
+
+            <div class="safety-block">
+                <div class="safety-title">⚠ Қауіпсіздік ережесі</div>
+                <ul>
+                    <li>Электролиттермен абайлап жұмыс істеңіз;</li>
+                    <li>Шыны ыдыстарды абайлап ұстаңыз;</li>
+                    <li>Оқытушының нұсқаулығына сәйкес әрекет етіңіз.</li>
+                </ul>
+            </div>
+
+            <h4>Жұмыстың орындалу тәртібі</h4>
+            <ol>
+                <li>Коллоидты ерітіндіні бірнеше стақанға бөліңіз.</li>
+                <li>Әр стақанға әртүрлі электролиттер қосыңыз.</li>
+                <li>Коагуляция басталуын бақылаңыз.</li>
+                <li>Коагуляция шегін анықтаңыз.</li>
+                <li>Нәтижелерді салыстырыңыз.</li>
+            </ol>
+
+            <h4>Бақылау нәтижелері</h4>
+            <div class="lab-input-group">
+                <label>NaCl коагуляция шегі (моль/л):
+                    <input type="number" id="lab10-nacl" placeholder="0.5" step="0.01">
+                </label>
+                <label>CaCl₂ коагуляция шегі (моль/л):
+                    <input type="number" id="lab10-cacl2" placeholder="0.05" step="0.01">
+                </label>
+                <label>AlCl₃ коагуляция шегі (моль/л):
+                    <input type="number" id="lab10-alcl3" placeholder="0.005" step="0.001">
+                </label>
+            </div>
+
+            <h4>Есептеулер</h4>
+            <button class="btn btn-primary" onclick="calculateLab10()">Есептеу</button>
+            <div class="lab-result" id="lab10-result"></div>
+
+            <h4>Қорытынды</h4>
+            <p>Коагуляция шегі электролиттің зарядына байланысты. Үш валентті иондардың коагуляциялық қабілеті жоғары.</p>
+
+            <h4>Бақылау сұрақтары</h4>
+            <ol>
+                <li>Коагуляция шегі дегеніміз не?</li>
+                <li>Электролит заряды коагуляцияға қалай әсер етеді?</li>
+                <li>Шульце-Гарди ережесін түсіндіріңіз.</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- ========== №12-13 ЗЕРТХАНАЛЫҚ ЖҰМЫСТАР ========== -->
+    <section class="section-page" id="page-lab12">
+        <h2> №12–13 зертханалық жұмыстар</h2>
+        <div class="lab-work">
+            <div class="lab-work-header">
+                <span style="font-size: 2rem;"></span>
+                <h3>Коллоидты ерітінділердің тұтқырлығын анықтау</h3>
+            </div>
+
+            <h4>Жұмыстың мақсаты</h4>
+            <p>Коллоидты ерітінділердің тұтқырлығын анықтау әдістерін меңгеру.</p>
+
+            <h4>Теориялық негізі</h4>
+            <p>Тұтқырлық — сұйықтықтың ағуға қарсылығы. Коллоидты ерітінділердің тұтқырлығы дисперстік фазаның концентрациясына тәуелді.</p>
+
+            <h4>Қажетті құрал-жабдықтар</h4>
+            <ul>
+                <li>Вискозиметр</li>
+                <li>Секундомер</li>
+                <li>Пипеткалар</li>
+            </ul>
+
+            <h4>Реактивтер</h4>
+            <ul>
+                <li>Коллоидты ерітінділер (әртүрлі концентрациялы)</li>
+                <li>Дистилденген су</li>
+            </ul>
+
+            <div class="safety-block">
+                <div class="safety-title"> Қауіпсіздік ережесі</div>
+                <ul>
+                    <li>Вискозиметрді абайлап пайдаланыңыз;</li>
+                    <li>Шыны ыдыстарды абайлап ұстаңыз;</li>
+                    <li>Оқытушының нұсқаулығына сәйкес әрекет етіңіз.</li>
+                </ul>
+            </div>
+
+            <h4>Жұмыстың орындалу тәртібі</h4>
+            <ol>
+                <li>Вискозиметрді дистилденген сумен калибрлеңіз.</li>
+                <li>Коллоидты ерітіндінің ағу уақытын өлшеңіз.</li>
+                <li>Әртүрлі концентрациялар үшін өлшеу жүргізіңіз.</li>
+                <li>Тұтқырлықты есептеңіз.</li>
+            </ol>
+
+            <h4>Бақылау нәтижелері</h4>
+            <div class="lab-input-group">
+                <label>Су үшін ағу уақыты (с):
+                    <input type="number" id="lab12-water" placeholder="10" step="0.1">
+                </label>
+                <label>Ерітінді үшін ағу уақыты (с):
+                    <input type="number" id="lab12-solution" placeholder="15" step="0.1">
+                </label>
+                <label>Ерітінді тығыздығы (г/мл):
+                    <input type="number" id="lab12-density" placeholder="1.05" step="0.01">
+                </label>
+                <label>Су тығыздығы (г/мл):
+                    <input type="number" id="lab12-water-density" placeholder="1.0" step="0.01">
+                </label>
+            </div>
+
+            <h4>Есептеулер</h4>
+            <button class="btn btn-primary" onclick="calculateLab12()">Есептеу</button>
+            <div class="lab-result" id="lab12-result"></div>
+
+            <h4>Қорытынды</h4>
+            <p>Коллоидты ерітінділердің тұтқырлығы концентрацияға байланысты өзгереді.</p>
+
+            <h4>Бақылау сұрақтары</h4>
+            <ol>
+                <li>Тұтқырлық дегеніміз не?</li>
+                <li>Тұтқырлықты анықтаудың қандай әдістері бар?</li>
+                <li>Концентрация тұтқырлыққа қалай әсер етеді?</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- ========== №14 ЗЕРТХАНАЛЫҚ ЖҰМЫС ========== -->
+    <section class="section-page" id="page-lab14">
+        <h2> №14 зертханалық жұмыс</h2>
+        <div class="lab-work">
+            <div class="lab-work-header">
+                <span style="font-size: 2rem;"></span>
+                <h3>Коллоидты ерітінділерді тұрақтандыру</h3>
+            </div>
+
+            <h4>Жұмыстың мақсаты</h4>
+            <p>Коллоидты ерітінділерді тұрақтандыру әдістерін меңгеру.</p>
+
+            <h4>Теориялық негізі</h4>
+            <p>Тұрақтандыру — коллоидты жүйенің тұрақтылығын арттыру. Тұрақтандырғыштар бөлшектердің бетінде қорғаныс қабатын түзеді.</p>
+
+            <h4>Қажетті құрал-жабдықтар</h4>
+            <ul>
+                <li>Стақандар</li>
+                <li>Пипеткалар</li>
+            </ul>
+
+            <h4>Реактивтер</h4>
+            <ul>
+                <li>Коллоидты ерітінді</li>
+                <li>Желатин ерітіндісі</li>
+                <li>Электролит ерітіндісі</li>
+            </ul>
+
+            <div class="safety-block">
+                <div class="safety-title"> Қауіпсіздік ережесі</div>
+                <ul>
+                    <li>Реактивтермен абайлап жұмыс істеңіз;</li>
+                    <li>Шыны ыдыстарды абайлап ұстаңыз;</li>
+                    <li>Оқытушының нұсқаулығына сәйкес әрекет етіңіз.</li>
+                </ul>
+            </div>
+
+            <h4>Жұмыстың орындалу тәртібі</h4>
+            <ol>
+                <li>Коллоидты ерітіндіні екі бөлікке бөліңіз.</li>
+                <li>Бірінші бөлікке электролит қосыңыз (бақылау).</li>
+                <li>Екінші бөлікке алдымен желатин, содан кейін электролит қосыңыз.</li>
+                <li>Екі жағдайдағы коагуляцияны салыстырыңыз.</li>
+            </ol>
+
+            <h4>Бақылау нәтижелері</h4>
+            <div class="lab-input-group">
+                <label>Бақылау үлгісінде коагуляция:
+                    <input type="text" id="lab14-control" placeholder="Жүреді/Жүрмейді">
+                </label>
+                <label>Желатин қосылған үлгіде коагуляция:
+                    <input type="text" id="lab14-gelatin" placeholder="Жүреді/Жүрмейді">
+                </label>
+            </div>
+
+            <h4>Қорытынды</h4>
+            <p>Желатин коллоидты жүйені электролиттердің коагуляциялық әсерінен қорғайды.</p>
+
+            <h4>Бақылау сұрақтары</h4>
+            <ol>
+                <li>Тұрақтандыру дегеніміз не?</li>
+                <li>Қорғаныс қабаты қалай түзіледі?</li>
+                <li>Тұрақтандырғыштардың практикалық маңызы қандай?</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- ========== V ТАРАУ ТЕСТІ ========== -->
+    <section class="section-page" id="page-quiz5">
+        <h2> V тарау тесті</h2>
+        <div class="quiz-container" id="quiz5-container">
+            <p class="mb-2">Әр сұраққа дұрыс жауапты таңдаңыз.</p>
+            <div id="quiz5-questions"></div>
+            <button class="btn btn-primary mt-2" onclick="checkQuiz('quiz5')">Жауаптарды тексеру</button>
+            <div class="quiz-result" id="quiz5-result" style="display: none;"></div>
+        </div>
+    </section>
+
+    <!-- ========== VI ТАРАУ ТЕОРИЯ ========== -->
+    <section class="section-page" id="page-ch6-theory">
+        <h2> VI ТАРАУ. Коллоидты ерітінділердің оптикалық қасиеттері</h2>
+        <div class="card">
+            <h3>Тараудың мақсаты</h3>
+            <p>Коллоидты ерітінділердің оптикалық қасиеттерін, соның ішінде Тиндал эффектісін зерттеу.</p>
+
+            <h3>Күтілетін оқу нәтижелері</h3>
+            <ul>
+                <li>Тиндал эффектісін түсіну;</li>
+                <li>Жарықтың шашырауын түсіндіру;</li>
+                <li>Оптикалық әдістерді меңгеру.</li>
+            </ul>
+
+            <h3>6.1. Коллоидты ерітінділердің оптикалық қасиеттері</h3>
+            <div class="definition">
+                <span class="term">Тиндал эффектісі</span> — коллоидты ерітінді арқылы жарық сәулесі өткенде жарықтың шашырауы.
+            </div>
+            <div class="simple-explain">
+                Қараңғы бөлмеде жарық сәулесі коллоидты ерітінді арқылы өтсе, жарқыраған жол көрінеді. Бұл — Тиндал эффектісі.
+            </div>
+
+            <h4>Рэлей теңдеуі:</h4>
+            <div class="formula-card" onclick="this.classList.toggle('expanded')">
+                <div class="formula-name">Рэлей теңдеуі</div>
+                <div class="formula-display">$$I = I_0 \frac{24\pi^3 N V^2}{\lambda^4}$$</div>
+                <div class="toggle-hint">Толық ақпарат үшін басыңыз ▼</div>
+                <div class="formula-meta">
+                    <p><strong>Мұндағы:</strong></p>
+                    <ul>
+                        <li>\(I\) — шашыраған жарық қарқындылығы</li>
+                        <li>\(I_0\) — түскен жарық қарқындылығы</li>
+                        <li>\(N\) — бөлшектер саны</li>
+                        <li>\(V\) — бөлшек көлемі</li>
+                        <li>\(\lambda\) — жарық толқын ұзындығы</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>6.2. Бақылау сұрақтары</h3>
+            <ol>
+                <li>Тиндал эффектісі дегеніміз не?</li>
+                <li>Рэлей теңдеуінің мағынасы неде?</li>
+                <li>Тиндал эффектісінің практикалық маңызы қандай?</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- ========== №15 ЗЕРТХАНАЛЫҚ ЖҰМЫС ========== -->
+    <section class="section-page" id="page-lab15">
+        <h2> №15 зертханалық жұмыс</h2>
+        <div class="lab-work">
+            <div class="lab-work-header">
+                <span style="font-size: 2rem;"></span>
+                <h3>Тиндал эффектісін зерттеу</h3>
+            </div>
+
+            <h4>Жұмыстың мақсаты</h4>
+            <p>Тиндал эффектісін бақылау және коллоидты жүйелерді нағыз ерітінділерден ажырату.</p>
+
+            <h4>Теориялық негізі</h4>
+            <p>Тиндал эффектісі — коллоидты бөлшектердің жарықты шашыратуы. Бұл құбылыс коллоидты жүйелердің оптикалық қасиетінің бір көрінісі.</p>
+
+            <h4>Қажетті құрал-жабдықтар</h4>
+            <ul>
+                <li>Жарық көзі (лазер)</li>
+                <li>Кюветалар</li>
+                <li>Қараңғы бөлме</li>
+            </ul>
+
+            <h4>Реактивтер</h4>
+            <ul>
+                <li>Коллоидты ерітінділер</li>
+                <li>Нағыз ерітінділер</li>
+            </ul>
+
+            <div class="safety-block">
+                <div class="safety-title"> Қауіпсіздік ережесі</div>
+                <ul>
+                    <li>Лазер сәулесін көзге түсірмеңіз;</li>
+                    <li>Шыны кюветаларды абайлап ұстаңыз;</li>
+                    <li>Қараңғы бөлмеде абай болыңыз.</li>
+                </ul>
+            </div>
+
+            <h4>Жұмыстың орындалу тәртібі</h4>
+            <ol>
+                <li>Кюветаға коллоидты ерітінді құйыңыз.</li>
+                <li>Жарық сәулесін ерітінді арқылы өткізіңіз.</li>
+                <li>Шашыраған жарықты бақылаңыз.</li>
+                <li>Нағыз ерітіндімен салыстырыңыз.</li>
+            </ol>
+
+            <h4>Бақылау нәтижелері</h4>
+            <div class="lab-input-group">
+                <label>Коллоидты ерітіндіде Тиндал эффектісі:
+                    <input type="text" id="lab15-colloid" placeholder="Байқалады/Байқалмайды">
+                </label>
+                <label>Нағыз ерітіндіде Тиндал эффектісі:
+                    <input type="text" id="lab15-true" placeholder="Байқалады/Байқалмайды">
+                </label>
+            </div>
+
+            <h4>Қорытынды</h4>
+            <p>Тиндал эффектісі коллоидты жүйелердің ерекшелігі болып табылады.</p>
+
+            <h4>Бақылау сұрақтары</h4>
+            <ol>
+                <li>Тиндал эффектісінің себебі неде?</li>
+                <li>Коллоидты және нағыз ерітінділерді қалай ажыратуға болады?</li>
+                <li>Тиндал эффектісінің практикалық маңызы қандай?</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- ========== VI ТАРАУ ТЕСТІ ========== -->
+    <section class="section-page" id="page-quiz6">
+        <h2> VI тарау тесті</h2>
+        <div class="quiz-container" id="quiz6-container">
+            <p class="mb-2">Әр сұраққа дұрыс жауапты таңдаңыз.</p>
+            <div id="quiz6-questions"></div>
+            <button class="btn btn-primary mt-2" onclick="checkQuiz('quiz6')">Жауаптарды тексеру</button>
+            <div class="quiz-result" id="quiz6-result" style="display: none;"></div>
+        </div>
+    </section>
+
+    <!-- ========== ФОРМУЛАЛАР ========== -->
+    <section class="section-page" id="page-formulas">
+        <h2> Қосымша формулалар</h2>
+        <div class="card">
+            <p>Коллоидты химия пәні бойынша негізгі формулалар жинағы.</p>
+            
+            <h3>1. Беттік керілу</h3>
+            <div class="formula-card" onclick="this.classList.toggle('expanded')">
+                <div class="formula-name">Беттік керілу</div>
+                <div class="formula-display">$$\sigma = \frac{F}{l}$$</div>
+                <div class="toggle-hint">Толық ақпарат үшін басыңыз ▼</div>
+                <div class="formula-meta">
+                    <p><strong>Шамалар:</strong> \(\sigma\) — беттік керілу (Н/м), \(F\) — күш (Н), \(l\) — ұзындық (м)</p>
+                    <p><strong>Қолданылуы:</strong> Сұйықтық бетінің қасиеттерін сипаттау.</p>
+                    <p><strong>Мысал:</strong> Су үшін \(\sigma = 72.8\) мН/м (20°C).</p>
+                </div>
+            </div>
+
+            <h3>2. Ленгмюр изотермасы</h3>
+            <div class="formula-card" onclick="this.classList.toggle('expanded')">
+                <div class="formula-name">Ленгмюр теңдеуі</div>
+                <div class="formula-display">$$A = A_\infty \frac{Kc}{1 + Kc}$$</div>
+                <div class="toggle-hint">Толық ақпарат үшін басыңыз ▼</div>
+                <div class="formula-meta">
+                    <p><strong>Шамалар:</strong> \(A\) — адсорбция (моль/г), \(A_\infty\) — шекті адсорбция, \(K\) — константа, \(c\) — концентрация (моль/л)</p>
+                    <p><strong>Қолданылуы:</strong> Мономолекулалық адсорбцияны сипаттау.</p>
+                    <p><strong>Мысал:</strong> \(A_\infty = 2 \times 10^{-4}\), \(K = 0.5\), \(c = 0.1\) болса, \(A = 9.52 \times 10^{-6}\) моль/г.</p>
+                </div>
+            </div>
+
+            <h3>3. Фик теңдеуі</h3>
+            <div class="formula-card" onclick="this.classList.toggle('expanded')">
+                <div class="formula-name">Фик теңдеуі</div>
+                <div class="formula-display">$$J = -D \frac{dc}{dx}$$</div>
+                <div class="toggle-hint">Толық ақпарат үшін басыңыз ▼</div>
+                <div class="formula-meta">
+                    <p><strong>Шамалар:</strong> \(J\) — диффузиялық ағын, \(D\) — диффузия коэффициенті (м²/с), \(\frac{dc}{dx}\) — концентрация градиенті</p>
+                    <p><strong>Қолданылуы:</strong> Диффузия процесін сипаттау.</p>
+                    <p><strong>Мысал:</strong> \(D = 10^{-9}\) м²/с, \(dc/dx = 10\) моль/м⁴ болса, \(J = -10^{-8}\) моль/(м²·с).</p>
+                </div>
+            </div>
+
+            <h3>4. Эйнштейн теңдеуі</h3>
+            <div class="formula-card" onclick="this.classList.toggle('expanded')">
+                <div class="formula-name">Эйнштейн теңдеуі</div>
+                <div class="formula-display">$$\eta = \eta_0 (1 + 2.5\varphi)$$</div>
+                <div class="toggle-hint">Толық ақпарат үшін басыңыз ▼</div>
+                <div class="formula-meta">
+                    <p><strong>Шамалар:</strong> \(\eta\) — ерітінді тұтқырлығы, \(\eta_0\) — орта тұтқырлығы, \(\varphi\) — көлемдік үлес</p>
+                    <p><strong>Қолданылуы:</strong> Коллоидты ерітінділердің тұтқырлығын есептеу.</p>
+                    <p><strong>Мысал:</strong> \(\eta_0 = 10^{-3}\) Па·с, \(\varphi = 0.01\) болса, \(\eta = 1.025 \times 10^{-3}\) Па·с.</p>
+                </div>
+            </div>
+
+            <h3>5. Седиментация жылдамдығы</h3>
+            <div class="formula-card" onclick="this.classList.toggle('expanded')">
+                <div class="formula-name">Седиментация жылдамдығы</div>
+                <div class="formula-display">$$v = \frac{2r^2(\rho - \rho_0)g}{9\eta}$$</div>
+                <div class="toggle-hint">Толық ақпарат үшін басыңыз ▼</div>
+                <div class="formula-meta">
+                    <p><strong>Шамалар:</strong> \(v\) — жылдамдық (м/с), \(r\) — бөлшек радиусы (м), \(\rho\) — бөлшек тығыздығы, \(\rho_0\) — орта тығыздығы, \(\eta\) — тұтқырлық (Па·с), \(g\) — еркін түсу үдеуі</p>
+                    <p><strong>Қолданылуы:</strong> Бөлшектердің тұнбаға түсу жылдамдығын есептеу.</p>
+                    <p><strong>Мысал:</strong> \(r = 10^{-6}\) м, \(\rho = 2000\) кг/м³, \(\rho_0 = 1000\) кг/м³, \(\eta = 10^{-3}\) Па·с болса, \(v = 2.18 \times 10^{-6}\) м/с.</p>
+                </div>
+            </div>
+
+            <h3>6. Рэлей теңдеуі</h3>
+            <div class="formula-card" onclick="this.classList.toggle('expanded')">
+                <div class="formula-name">Рэлей теңдеуі</div>
+                <div class="formula-display">$$I = I_0 \frac{24\pi^3 N V^2}{\lambda^4}$$</div>
+                <div class="toggle-hint">Толық ақпарат үшін басыңыз ▼</div>
+                <div class="formula-meta">
+                    <p><strong>Шамалар:</strong> \(I\) — шашыраған жарық, \(I_0\) — түскен жарық, \(N\) — бөлшектер саны, \(V\) — бөлшек көлемі, \(\lambda\) — толқын ұзындығы</p>
+                    <p><strong>Қолданылуы:</strong> Тиндал эффектісін сандық сипаттау.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== КЕСТЕЛЕР ========== -->
+    <section class="section-page" id="page-tables">
+        <h2> Қосымша кестелер</h2>
+        <div class="card">
+            <h3>1. Негізгі физикалық шамалар мен өлшем бірліктері</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>Шама</th><th>Белгіленуі</th><th>Өлшем бірлігі</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Беттік керілу</td><td>\(\sigma\)</td><td>Н/м</td></tr>
+                        <tr><td>Адсорбция</td><td>\(A\)</td><td>моль/г</td></tr>
+                        <tr><td>Диффузия коэффициенті</td><td>\(D\)</td><td>м²/с</td></tr>
+                        <tr><td>Тұтқырлық</td><td>\(\eta\)</td><td>Па·с</td></tr>
+                        <tr><td>Седиментация жылдамдығы</td><td>\(v\)</td><td>м/с</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>2. Коллоидты жүйелердің жіктелуі</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>Дисперстік фаза</th><th>Дисперсиялық орта</th><th>Атауы</th><th>Мысал</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Қатты</td><td>Сұйық</td><td>Золь, суспензия</td><td>Бояулар</td></tr>
+                        <tr><td>Сұйық</td><td>Газ</td><td>Аэрозоль</td><td>Тұман</td></tr>
+                        <tr><td>Қатты</td><td>Газ</td><td>Аэрозоль</td><td>Түтін</td></tr>
+                        <tr><td>Газ</td><td>Сұйық</td><td>Көбік</td><td>Сабын көбігі</td></tr>
+                        <tr><td>Сұйық</td><td>Сұйық</td><td>Эмульсия</td><td>Сүт</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>3. Бағалау шкаласы</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>Пайыз</th><th>Баға</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>90–100%</td><td>Өте жақсы</td></tr>
+                        <tr><td>75–89%</td><td>Жақсы</td></tr>
+                        <tr><td>50–74%</td><td>Қанағаттанарлық</td></tr>
+                        <tr><td>0–49%</td><td>Қайталап оқу қажет</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== СХЕМАЛАР ========== -->
+    <section class="section-page" id="page-schemas">
+        <h2> Қосымша суреттер мен схемалар</h2>
+        <div class="card">
+            <h3>1. Дисперсті жүйенің құрылымы</h3>
+            <div class="schema-container">
+                <svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="10" width="380" height="180" rx="15" fill="none" stroke="#2563eb" stroke-width="3"/>
+                    <circle cx="80" cy="60" r="15" fill="#7c3aed" opacity="0.7"/>
+                    <circle cx="180" cy="45" r="12" fill="#7c3aed" opacity="0.7"/>
+                    <circle cx="300" cy="70" r="18" fill="#7c3aed" opacity="0.7"/>
+                    <circle cx="120" cy="130" r="14" fill="#7c3aed" opacity="0.7"/>
+                    <circle cx="250" cy="140" r="16" fill="#7c3aed" opacity="0.7"/>
+                    <circle cx="340" cy="130" r="10" fill="#7c3aed" opacity="0.7"/>
+                    <circle cx="50" cy="160" r="11" fill="#7c3aed" opacity="0.7"/>
+                    <circle cx="200" cy="100" r="13" fill="#7c3aed" opacity="0.7"/>
+                    <text x="200" y="195" text-anchor="middle" font-size="12" fill="#64748b">Дисперстік фаза (күлгін) + Дисперсиялық орта</text>
+                </svg>
+            </div>
+
+            <h3>2. Броундық қозғалыс</h3>
+            <div class="schema-container">
+                <svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="10" width="380" height="180" rx="15" fill="none" stroke="#2563eb" stroke-width="3"/>
+                    <path d="M50,100 Q80,40 120,90 T180,60 T240,120 T300,70 T350,100" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+                    <circle cx="50" cy="100" r="5" fill="#2563eb"/>
+                    <circle cx="350" cy="100" r="5" fill="#2563eb"/>
+                    <text x="200" y="195" text-anchor="middle" font-size="12" fill="#64748b">Бөлшектің ретсіз қозғалыс траекториясы</text>
+                </svg>
+            </div>
+
+            <h3>3. Диффузия процесі</h3>
+            <div class="schema-container">
+                <svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="diffGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.1"/>
+                        </linearGradient>
+                    </defs>
+                    <rect x="10" y="10" width="380" height="180" rx="15" fill="url(#diffGrad)"/>
+                    <text x="50" y="100" font-size="14" fill="#fff" font-weight="bold">Жоғары</text>
+                    <text x="50" y="120" font-size="14" fill="#fff">концентрация</text>
+                    <text x="280" y="100" font-size="14" fill="#1e293b" font-weight="bold">Төмен</text>
+                    <text x="280" y="120" font-size="14" fill="#1e293b">концентрация</text>
+                    <path d="M150,105 L250,105" stroke="#2563eb" stroke-width="3" marker-end="url(#arrow)"/>
+                    <defs>
+                        <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+
+            <h3>4. Тиндал эффектісі</h3>
+            <div class="schema-container">
+                <svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="10" width="380" height="180" rx="15" fill="#0f172a"/>
+                    <line x1="50" y1="100" x2="350" y2="100" stroke="#fbbf24" stroke-width="6" opacity="0.9"/>
+                    <circle cx="120" cy="80" r="3" fill="#fbbf24" opacity="0.6"/>
+                    <circle cx="180" cy="120" r="3" fill="#fbbf24" opacity="0.6"/>
+                    <circle cx="240" cy="75" r="3" fill="#fbbf24" opacity="0.6"/>
+                    <circle cx="300" cy="115" r="3" fill="#fbbf24" opacity="0.6"/>
+                    <circle cx="160" cy="95" r="3" fill="#fbbf24" opacity="0.6"/>
+                    <circle cx="270" cy="100" r="3" fill="#fbbf24" opacity="0.6"/>
+                    <text x="200" y="195" text-anchor="middle" font-size="12" fill="#94a3b8">Жарық сәулесінің коллоидты бөлшектерде шашырауы</text>
+                </svg>
+            </div>
+
+            <h3>5. Коагуляция процесі</h3>
+            <div class="schema-container">
+                <svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="10" width="180" height="180" rx="15" fill="none" stroke="#2563eb" stroke-width="2"/>
+                    <text x="100" y="30" text-anchor="middle" font-size="12" fill="#2563eb">Коагуляцияға дейін</text>
+                    <circle cx="60" cy="70" r="10" fill="#7c3aed" opacity="0.7"/>
+                    <circle cx="120" cy="60" r="8" fill="#7c3aed" opacity="0.7"/>
+                    <circle cx="80" cy="120" r="9" fill="#7c3aed" opacity="0.7"/>
+                    <circle cx="130" cy="110" r="7" fill="#7c3aed" opacity="0.7"/>
+                    <circle cx="100" cy="150" r="8" fill="#7c3aed" opacity="0.7"/>
+                    
+                    <rect x="210" y="10" width="180" height="180" rx="15" fill="none" stroke="#dc2626" stroke-width="2"/>
+                    <text x="300" y="30" text-anchor="middle" font-size="12" fill="#dc2626">Коагуляциядан кейін</text>
+                    <circle cx="270" cy="80" r="20" fill="#dc2626" opacity="0.6"/>
+                    <circle cx="320" cy="100" r="25" fill="#dc2626" opacity="0.6"/>
+                    <circle cx="280" cy="140" r="18" fill="#dc2626" opacity="0.6"/>
+                    <circle cx="340" cy="150" r="15" fill="#dc2626" opacity="0.6"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ГЛОССАРИЙ ========== -->
+    <section class="section-page" id="page-glossary">
+        <h2> Глоссарий</h2>
+        <div class="card">
+            <p class="mb-2">Терминдерді басып, анықтамаларын көріңіз.</p>
+            <div id="glossaryList"></div>
+        </div>
+    </section>
+
+    <!-- ========== ҚОРЫТЫНДЫ БАҚЫЛАУ ========== -->
+    <section class="section-page" id="page-final-quiz">
+        <h2> Қорытынды бақылау</h2>
+        <div class="quiz-container" id="finalQuiz-container">
+            <p class="mb-2">Барлық тараулар бойынша қорытынды тест. 15 сұрақ.</p>
+            <div id="finalQuiz-questions"></div>
+            <button class="btn btn-primary mt-2" onclick="checkQuiz('finalQuiz')">Жауаптарды тексеру</button>
+            <div class="quiz-result" id="finalQuiz-result" style="display: none;"></div>
+        </div>
+    </section>
+
+    <!-- ========== ӘДЕБИЕТТЕР ============ -->
+    <section class="section-page" id="page-references">
+        <h2> Қолданылған әдебиеттер</h2>
+        <div class="card">
+            <h3>Негізгі әдебиеттер</h3>
+            <ol>
+                <li>Құлажанов Қ.С. Таусарова Б.Р. Сүлейменова М.Ш. Абилкасова С.О. Физикалық және коллоидтық химия. I-Том. Физикалық химия: Оқулық. Алматы, 2023. 458 б.</li>
+                <li>Әлімжанова Ш. Х., Құмарғалиева С. С. Коллоидтық химия: оқу құралы. — Алматы: Қазақ университеті, 2021. — 184 б.</li>                   
+                <li>Мусабеков К. Б., Жұбанова А. А. Беттік-активті заттар мен коллоидтық жүйелердің физика-химиясы. — Алматы: Эверо, 2020. — 256 б.</li>
+                <li>Қаныбеков Л. Д., Оспанова Ж. Б. Дисперсті жүйелер және коллоидты химия негіздері. — Шымкент: М. Әуезов атындағы ОҚУ, 2022. — 210 б.</li>
+                <li>Коллоидты химиядан зертханалық жұмыстар: Оқу-әдістемелік материал.</li>
+                <li>Фридрихсберг Д.А. Курс коллоидной химии. — Л.: Химия, 1984.</li>
+                <li>Воюцкий С.С. Курс коллоидной химии. — М.: Химия, 1975.</li>
+                <li>Щукин Е.Д., Перцов А.В., Амелина Е.А. Коллоидная химия. — М.: Высшая школа, 2004.</li>
+            </ol>
+
+            <h3>Қосымша әдебиеттер</h3>
+            <ol>
+                <li>Гельфман М.И., Ковалевич О.В., Юстратов В.П. Коллоидная химия. — СПб.: Лань, 2003.</li>
+                <li>Зимон А.Д. Коллоидная химия. — М.: Агар, 1999.</li>
+                <li>Ребиндер П.А. Поверхностные явления в дисперсных системах. — М.: Наука, 1978.</li>
+            </ol>
+        </div>
+    </section>
+
+</main>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+    // ==================== ДЕРЕКҚОР ====================
+    const LAB_RESULTS_KEY = 'colloid_lab_results';
+    const PROGRESS_KEY = 'colloid_progress';
+    const QUIZ_RESULTS_KEY = 'colloid_quiz_results';
+    const THEME_KEY = 'colloid_theme';
+
+    // ==================== ТЕСТ СҰРАҚТАРЫ ====================
+    const quizzes = {
+        quiz1: [
+            {
+                type: 'single',
+                question: 'Дисперсті жүйе дегеніміз не?',
+                options: [
+                    'Бір заттың екінші заттың ішінде ұсақ бөлшектер түрінде таралған жүйесі',
+                    'Тек сұйық заттардың қоспасы',
+                    'Қатты заттардың ерітіндісі',
+                    'Газдардың қоспасы'
+                ],
+                correct: 0,
+                explanation: 'Дисперсті жүйе — дисперстік фаза мен дисперсиялық ортадан тұратын жүйе.'
+            },
+            {
+                type: 'single',
+                question: 'Коллоидты бөлшектердің мөлшері қандай?',
+                options: [
+                    '1–100 нм',
+                    '1–100 мкм',
+                    '1–100 мм',
+                    '1–100 см'
+                ],
+                correct: 0,
+                explanation: 'Коллоидты бөлшектер 1-100 нм (нанометр) диапазонында болады.'
+            },
+            {
+                type: 'multiple',
+                question: 'Коллоидты жүйелердің қасиеттерін таңдаңыз (бірнеше дұрыс жауап):',
+                options: [
+                    'Броундық қозғалыс',
+                    'Тиндал эффектісі',
+                    'Жоғары дисперстілік',
+                    'Үлкен беттік аудан'
+                ],
+                correct: [0, 1, 2, 3],
+                explanation: 'Барлық аталған қасиеттер коллоидты жүйелерге тән.'
+            },
+            {
+                type: 'single',
+                question: 'Лиофильді жүйелер дегеніміз не?',
+                options: [
+                    'Дисперстік фаза мен орта арасында жақсы әрекеттесу болатын жүйелер',
+                    'Сумен әрекеттеспейтін жүйелер',
+                    'Тек газ тәрізді жүйелер',
+                    'Қатты заттардың қоспасы'
+                ],
+                correct: 0,
+                explanation: 'Лиофильді жүйелерде дисперстік фаза мен орта арасында жақсы әрекеттесу болады.'
+            },
+            {
+                type: 'truefalse',
+                question: 'Сүт — эмульсия түріндегі коллоидты жүйе.',
+                correct: true,
+                explanation: 'Сүт — сұйық фазаның сұйық ортада таралған эмульсиясы.'
+            },
+            {
+                type: 'single',
+                question: 'Тиндал эффектісі дегеніміз не?',
+                options: [
+                    'Коллоидты ерітінді арқылы жарық өткенде шашырауы',
+                    'Заттың еруі',
+                    'Температураның өзгеруі',
+                    'Қысымның артуы'
+                ],
+                correct: 0,
+                explanation: 'Тиндал эффектісі — коллоидты бөлшектердің жарықты шашыратуы.'
+            },
+            {
+                type: 'single',
+                question: 'Дисперстік дәреже формуласы қандай?',
+                options: [
+                    'D = 1/a',
+                    'D = a × 2',
+                    'D = a²',
+                    'D = 2a'
+                ],
+                correct: 0,
+                explanation: 'D = 1/a, мұндағы a — бөлшек мөлшері.'
+            },
+            {
+                type: 'multiple',
+                question: 'Коллоидты жүйелердің күнделікті өмірдегі мысалдарын таңдаңыз:',
+                options: [
+                    'Тұман',
+                    'Сүт',
+                    'Қан',
+                    'Түтін'
+                ],
+                correct: [0, 1, 2, 3],
+                explanation: 'Барлығы коллоидты жүйелерге жатады.'
+            }
+        ],
+        quiz2: [
+            {
+                type: 'single',
+                question: 'Беттік керілу дегеніміз не?',
+                options: [
+                    'Сұйықтық бетінің аудан бірлігін ұлғайтуға жұмсалатын жұмыс',
+                    'Сұйықтықтың тығыздығы',
+                    'Сұйықтықтың тұтқырлығы',
+                    'Сұйықтықтың температурасы'
+                ],
+                correct: 0,
+                explanation: 'Беттік керілу — беттің аудан бірлігін ұлғайтуға жұмсалатын жұмыс.'
+            },
+            {
+                type: 'single',
+                question: 'Адсорбция мен абсорбцияның айырмашылығы неде?',
+                options: [
+                    'Адсорбция — бетте, абсорбция — көлемде',
+                    'Адсорбция — көлемде, абсорбция — бетте',
+                    'Екеуі бірдей',
+                    'Екеуі де тек газдарға тән'
+                ],
+                correct: 0,
+                explanation: 'Адсорбция — беттік құбылыс, абсорбция — көлемдік сіңіру.'
+            },
+            {
+                type: 'single',
+                question: 'Ленгмюр изотермасындағы A∞ нені білдіреді?',
+                options: [
+                    'Шекті адсорбция',
+                    'Бастапқы концентрация',
+                    'Тепе-теңдік константасы',
+                    'Уақыт'
+                ],
+                correct: 0,
+                explanation: 'A∞ — шекті адсорбция мөлшері.'
+            },
+            {
+                type: 'truefalse',
+                question: 'Сабын беттік керілуді арттырады.',
+                correct: false,
+                explanation: 'Сабын беттік керілуді азайтады (беттік активті зат).'
+            },
+            {
+                type: 'single',
+                question: 'Беттік керілу өлшем бірлігі қандай?',
+                options: [
+                    'Н/м',
+                    'Па·с',
+                    'Дж/моль',
+                    'моль/л'
+                ],
+                correct: 0,
+                explanation: 'Беттік керілу Н/м (ньютон/метр) бірлігімен өлшенеді.'
+            },
+            {
+                type: 'single',
+                question: 'Ленгмюр теңдеуі қандай?',
+                options: [
+                    'A = A∞ · Kc/(1 + Kc)',
+                    'A = Kc',
+                    'A = A∞ + Kc',
+                    'A = Kc²'
+                ],
+                correct: 0,
+                explanation: 'Ленгмюр теңдеуі: A = A∞ · Kc/(1 + Kc).'
+            },
+            {
+                type: 'multiple',
+                question: 'Адсорбцияға әсер ететін факторларды таңдаңыз:',
+                options: [
+                    'Температура',
+                    'Концентрация',
+                    'Адсорбент табиғаты',
+                    'Уақыт'
+                ],
+                correct: [0, 1, 2, 3],
+                explanation: 'Барлық аталған факторлар адсорбцияға әсер етеді.'
+            },
+            {
+                type: 'single',
+                question: 'Десорбция дегеніміз не?',
+                options: [
+                    'Адсорбцияланған заттың беттен бөлінуі',
+                    'Заттың бетке жинақталуы',
+                    'Заттың көлемге сіңуі',
+                    'Заттың еруі'
+                ],
+                correct: 0,
+                explanation: 'Десорбция — адсорбцияланған заттың беттен бөлінуі.'
+            }
+        ],
+        quiz3: [
+            {
+                type: 'single',
+                question: 'Броундық қозғалыс дегеніміз не?',
+                options: [
+                    'Ұсақ бөлшектердің молекулалардың соқтығысуынан ретсіз қозғалысы',
+                    'Бөлшектердің тұнбаға түсуі',
+                    'Заттың еруі',
+                    'Жарықтың шашырауы'
+                ],
+                correct: 0,
+                explanation: 'Броундық қозғалыс — молекулалардың соқтығысуынан пайда болатын ретсіз қозғалыс.'
+            },
+            {
+                type: 'single',
+                question: 'Диффузия дегеніміз не?',
+                options: [
+                    'Заттың концентрациясы жоғары аймақтан төмен аймаққа таралуы',
+                    'Бөлшектердің тұнбаға түсуі',
+                    'Жарықтың шашырауы',
+                    'Температураның өзгеруі'
+                ],
+                correct: 0,
+                explanation: 'Диффузия — концентрация градиенті бойынша заттың таралуы.'
+            },
+            {
+                type: 'single',
+                question: 'Седиментация дегеніміз не?',
+                options: [
+                    'Бөлшектердің ауырлық күші әсерінен тұнбаға түсуі',
+                    'Бөлшектердің ретсіз қозғалысы',
+                    'Заттың еруі',
+                    'Жарықтың шашырауы'
+                ],
+                correct: 0,
+                explanation: 'Седиментация — ауырлық күші әсерінен бөлшектердің шөгуі.'
+            },
+            {
+                type: 'truefalse',
+                question: 'Броундық қозғалыс температураға тәуелді емес.',
+                correct: false,
+                explanation: 'Температура артқанда Броундық қозғалыс қарқындылығы артады.'
+            },
+            {
+                type: 'single',
+                question: 'Фик теңдеуі қандай?',
+                options: [
+                    'J = -D · dc/dx',
+                    'J = D · c',
+                    'J = c/t',
+                    'J = m/V'
+                ],
+                correct: 0,
+                explanation: 'Фик теңдеуі: J = -D · dc/dx.'
+            },
+            {
+                type: 'single',
+                question: 'Седиментация жылдамдығы формуласы қандай?',
+                options: [
+                    'v = 2r²(ρ-ρ₀)g/(9η)',
+                    'v = r²g/η',
+                    'v = 2r(ρ-ρ₀)g/η',
+                    'v = r²(ρ-ρ₀)/η'
+                ],
+                correct: 0,
+                explanation: 'v = 2r²(ρ-ρ₀)g/(9η) — Стокс заңы.'
+            },
+            {
+                type: 'multiple',
+                question: 'Молекула-кинетикалық қасиеттерге не жатады?',
+                options: [
+                    'Броундық қозғалыс',
+                    'Диффузия',
+                    'Седиментация',
+                    'Флуктуация'
+                ],
+                correct: [0, 1, 2, 3],
+                explanation: 'Барлығы молекула-кинетикалық қасиеттерге жатады.'
+            },
+            {
+                type: 'single',
+                question: 'Флуктуация дегеніміз не?',
+                options: [
+                    'Шамалардың кездейсоқ ауытқуы',
+                    'Заттың еруі',
+                    'Температураның артуы',
+                    'Қысымның төмендеуі'
+                ],
+                correct: 0,
+                explanation: 'Флуктуация — жүйедегі шамалардың кездейсоқ ауытқуы.'
+            }
+        ],
+        quiz4: [
+            {
+                type: 'single',
+                question: 'Коллоидты жүйелерді алудың негізгі әдістері қандай?',
+                options: [
+                    'Диспергациялау және конденсациялау',
+                    'Еріту және сүзу',
+                    'Қыздыру және суыту',
+                    'Араластыру және тұндыру'
+                ],
+                correct: 0,
+                explanation: 'Коллоидты жүйелер диспергациялау және конденсациялау әдістерімен алынады.'
+            },
+            {
+                type: 'single',
+                question: 'Диализ дегеніміз не?',
+                options: [
+                    'Жартылай өткізгіш мембрана арқылы қоспаларды бөлу',
+                    'Қысым арқылы сүзу',
+                    'Электр өрісін қолдану',
+                    'Тұндыру'
+                ],
+                correct: 0,
+                explanation: 'Диализ — жартылай өткізгіш мембрана арқылы қоспаларды бөлу әдісі.'
+            },
+            {
+                type: 'truefalse',
+                question: 'Ультрафильтрация диализге қарағанда жылдамырақ.',
+                correct: true,
+                explanation: 'Ультрафильтрация қысым арқылы жүргізіледі, сондықтан жылдамырақ.'
+            },
+            {
+                type: 'single',
+                question: 'Конденсациялау әдісі дегеніміз не?',
+                options: [
+                    'Молекулалардың іріктелуі арқылы коллоидты бөлшектер түзу',
+                    'Ірі бөлшектерді ұсақтау',
+                    'Затты еріту',
+                    'Тұнбаны сүзу'
+                ],
+                correct: 0,
+                explanation: 'Конденсациялау — молекулалардың іріктелуі арқылы бөлшектер түзу.'
+            },
+            {
+                type: 'single',
+                question: 'Электродиализ дегеніміз не?',
+                options: [
+                    'Электр өрісін қолдану арқылы тазалау',
+                    'Қысыммен сүзу',
+                    'Мембрана арқылы бөлу',
+                    'Тұндыру'
+                ],
+                correct: 0,
+                explanation: 'Электродиализ — электр өрісін қолдану арқылы тазалау әдісі.'
+            },
+            {
+                type: 'multiple',
+                question: 'Коллоидты жүйелерді тазалау әдістері:',
+                options: [
+                    'Диализ',
+                    'Ультрафильтрация',
+                    'Электродиализ',
+                    'Тұндыру'
+                ],
+                correct: [0, 1, 2],
+                explanation: 'Диализ, ультрафильтрация және электродиализ — тазалау әдістері.'
+            },
+            {
+                type: 'single',
+                question: 'Диспергациялау әдісі дегеніміз не?',
+                options: [
+                    'Ірі бөлшектерді ұсақтау арқылы коллоидты жүйе алу',
+                    'Молекулаларды іріктеу',
+                    'Затты еріту',
+                    'Тұнбаны сүзу'
+                ],
+                correct: 0,
+                explanation: 'Диспергациялау — ірі бөлшектерді ұсақтау әдісі.'
+            },
+            {
+                type: 'truefalse',
+                question: 'Тазалау коллоидты жүйелердің тұрақтылығын арттырады.',
+                correct: true,
+                explanation: 'Қоспаларды кетіру тұрақтылықты арттырады.'
+            }
+        ],
+        quiz5: [
+            {
+                type: 'single',
+                question: 'Коагуляция дегеніміз не?',
+                options: [
+                    'Коллоидты бөлшектердің бірігуі және тұнбаға түсуі',
+                    'Заттың еруі',
+                    'Жарықтың шашырауы',
+                    'Температураның өзгеруі'
+                ],
+                correct: 0,
+                explanation: 'Коагуляция — бөлшектердің бірігуі және тұнбаға түсуі.'
+            },
+            {
+                type: 'single',
+                question: 'Коагуляция шегі дегеніміз не?',
+                options: [
+                    'Коагуляция басталатын электролиттің ең аз концентрациясы',
+                    'Коагуляция уақыты',
+                    'Бөлшек мөлшері',
+                    'Температура'
+                ],
+                correct: 0,
+                explanation: 'Коагуляция шегі — коагуляция басталатын ең аз концентрация.'
+            },
+            {
+                type: 'single',
+                question: 'Шульце-Гарди ережесі бойынша коагуляциялық қабілет қалай өзгереді?',
+                options: [
+                    'Ион заряды артқанда артады',
+                    'Ион заряды артқанда азаяды',
+                    'Зарядқа тәуелді емес',
+                    'Тек температураға тәуелді'
+                ],
+                correct: 0,
+                explanation: 'Шульце-Гарди ережесі: коагуляциялық қабілет ион зарядының алтыншы дәрежесіне пропорционал.'
+            },
+            {
+                type: 'truefalse',
+                question: 'Үш валентті иондардың коагуляциялық қабілеті бір валенттілерге қарағанда жоғары.',
+                correct: true,
+                explanation: 'Шульце-Гарди ережесі бойынша жоғары зарядты иондар тиімдірек.'
+            },
+            {
+                type: 'single',
+                question: 'Тұтқырлық дегеніміз не?',
+                options: [
+                    'Сұйықтықтың ағуға қарсылығы',
+                    'Сұйықтықтың тығыздығы',
+                    'Сұйықтықтың температурасы',
+                    'Сұйықтықтың көлемі'
+                ],
+                correct: 0,
+                explanation: 'Тұтқырлық — сұйықтықтың ағуға қарсылығы.'
+            },
+            {
+                type: 'single',
+                question: 'Эйнштейн теңдеуі қандай?',
+                options: [
+                    'η = η₀(1 + 2.5φ)',
+                    'η = η₀ + φ',
+                    'η = 2.5η₀φ',
+                    'η = η₀/φ'
+                ],
+                correct: 0,
+                explanation: 'Эйнштейн теңдеуі: η = η₀(1 + 2.5φ).'
+            },
+            {
+                type: 'multiple',
+                question: 'Коагуляцияға әсер ететін факторлар:',
+                options: [
+                    'Электролит концентрациясы',
+                    'Температура',
+                    'Ион заряды',
+                    'Араластыру'
+                ],
+                correct: [0, 1, 2, 3],
+                explanation: 'Барлық аталған факторлар коагуляцияға әсер етеді.'
+            },
+            {
+                type: 'single',
+                question: 'Тұрақтандыру дегеніміз не?',
+                options: [
+                    'Коллоидты жүйенің тұрақтылығын арттыру',
+                    'Коагуляцияны жылдамдату',
+                    'Бөлшектерді ұсақтау',
+                    'Затты еріту'
+                ],
+                correct: 0,
+                explanation: 'Тұрақтандыру — коллоидты жүйенің тұрақтылығын арттыру.'
+            }
+        ],
+        quiz6: [
+            {
+                type: 'single',
+                question: 'Тиндал эффектісі дегеніміз не?',
+                options: [
+                    'Коллоидты ерітінді арқылы жарық өткенде шашырауы',
+                    'Заттың еруі',
+                    'Температураның өзгеруі',
+                    'Қысымның артуы'
+                ],
+                correct: 0,
+                explanation: 'Тиндал эффектісі — коллоидты бөлшектердің жарықты шашыратуы.'
+            },
+            {
+                type: 'single',
+                question: 'Рэлей теңдеуі бойынша шашырау қарқындылығы толқын ұзындығына қалай тәуелді?',
+                options: [
+                    'λ⁴-ке кері пропорционал',
+                    'λ-ға тура пропорционал',
+                    'λ²-ге тура пропорционал',
+                    'Тәуелді емес'
+                ],
+                correct: 0,
+                explanation: 'I ~ 1/λ⁴, яғни қысқа толқындар күштірек шашырайды.'
+            },
+            {
+                type: 'truefalse',
+                question: 'Тиндал эффектісі нағыз ерітінділерде де байқалады.',
+                correct: false,
+                explanation: 'Тиндал эффектісі тек коллоидты жүйелерге тән.'
+            },
+            {
+                type: 'single',
+                question: 'Тиндал эффектісін бақылау үшін қандай жағдай қажет?',
+                options: [
+                    'Қараңғы бөлме және жарық көзі',
+                    'Жарық бөлме',
+                    'Жоғары температура',
+                    'Төмен қысым'
+                ],
+                correct: 0,
+                explanation: 'Тиндал эффектісін қараңғы бөлмеде жарық көзімен бақылауға болады.'
+            },
+            {
+                type: 'single',
+                question: 'Коллоидты ерітінділерді нағыз ерітінділерден қалай ажыратуға болады?',
+                options: [
+                    'Тиндал эффектісі арқылы',
+                    'Түсі бойынша',
+                    'Иісі бойынша',
+                    'Дәмі бойынша'
+                ],
+                correct: 0,
+                explanation: 'Тиндал эффектісі коллоидты жүйелердің ерекшелігі.'
+            },
+            {
+                type: 'multiple',
+                question: 'Оптикалық қасиеттерге не жатады?',
+                options: [
+                    'Жарықтың шашырауы',
+                    'Жарықтың жұтылуы',
+                    'Тиндал эффектісі',
+                    'Жарықтың сынуы'
+                ],
+                correct: [0, 1, 2, 3],
+                explanation: 'Барлығы коллоидты жүйелердің оптикалық қасиеттеріне жатады.'
+            },
+            {
+                type: 'single',
+                question: 'Рэлей теңдеуіндегі V нені білдіреді?',
+                options: [
+                    'Бөлшек көлемі',
+                    'Жылдамдық',
+                    'Кернеу',
+                    'Көлем'
+                ],
+                correct: 0,
+                explanation: 'V — бөлшек көлемі.'
+            },
+            {
+                type: 'truefalse',
+                question: 'Тиндал эффектісі коллоидты бөлшектердің мөлшеріне тәуелді.',
+                correct: true,
+                explanation: 'Бөлшек мөлшері шашырау қарқындылығына әсер етеді.'
+            }
+        ],
+        finalQuiz: [
+            {
+                type: 'single',
+                question: 'Коллоидты жүйелердің бөлшек мөлшері қандай диапазонда?',
+                options: ['1-100 нм', '1-100 мкм', '1-100 мм', '1-100 см'],
+                correct: 0,
+                explanation: 'Коллоидты бөлшектер 1-100 нм.'
+            },
+            {
+                type: 'single',
+                question: 'Беттік керілу формуласы қандай?',
+                options: ['σ = F/l', 'σ = F·l', 'σ = l/F', 'σ = F²/l'],
+                correct: 0,
+                explanation: 'σ = F/l.'
+            },
+            {
+                type: 'single',
+                question: 'Ленгмюр изотермасы қандай процесті сипаттайды?',
+                options: ['Адсорбцияны', 'Диффузияны', 'Седиментацияны', 'Коагуляцияны'],
+                correct: 0,
+                explanation: 'Ленгмюр изотермасы адсорбцияны сипаттайды.'
+            },
+            {
+                type: 'single',
+                question: 'Броундық қозғалыстың себебі неде?',
+                options: [
+                    'Молекулалардың соқтығысуы',
+                    'Ауырлық күші',
+                    'Электр өрісі',
+                    'Магнит өрісі'
+                ],
+                correct: 0,
+                explanation: 'Молекулалардың соқтығысуы Броундық қозғалыс тудырады.'
+            },
+            {
+                type: 'single',
+                question: 'Диффузияны сипаттайтын теңдеу:',
+                options: ['Фик теңдеуі', 'Эйнштейн теңдеуі', 'Ленгмюр теңдеуі', 'Рэлей теңдеуі'],
+                correct: 0,
+                explanation: 'Фик теңдеуі диффузияны сипаттайды.'
+            },
+            {
+                type: 'single',
+                question: 'Седиментация дегеніміз не?',
+                options: [
+                    'Бөлшектердің тұнбаға түсуі',
+                    'Бөлшектердің ретсіз қозғалысы',
+                    'Заттың еруі',
+                    'Жарықтың шашырауы'
+                ],
+                correct: 0,
+                explanation: 'Седиментация — тұнбаға түсу.'
+            },
+            {
+                type: 'single',
+                question: 'Коллоидты жүйелерді алудың негізгі әдістері:',
+                options: [
+                    'Диспергациялау және конденсациялау',
+                    'Еріту және сүзу',
+                    'Қыздыру және суыту',
+                    'Араластыру және тұндыру'
+                ],
+                correct: 0,
+                explanation: 'Диспергациялау және конденсациялау.'
+            },
+            {
+                type: 'single',
+                question: 'Диализ әдісі нені тазалайды?',
+                options: [
+                    'Қоспаларды',
+                    'Коллоидты бөлшектерді',
+                    'Суды',
+                    'Ауаны'
+                ],
+                correct: 0,
+                explanation: 'Диализ қоспаларды кетіреді.'
+            },
+            {
+                type: 'single',
+                question: 'Коагуляция дегеніміз не?',
+                options: [
+                    'Бөлшектердің бірігуі',
+                    'Бөлшектердің ұсақталуы',
+                    'Заттың еруі',
+                    'Жарықтың шашырауы'
+                ],
+                correct: 0,
+                explanation: 'Коагуляция — бөлшектердің бірігуі.'
+            },
+            {
+                type: 'single',
+                question: 'Шульце-Гарди ережесі нені сипаттайды?',
+                options: [
+                    'Коагуляциялық қабілеттің ион зарядына тәуелділігін',
+                    'Адсорбцияны',
+                    'Диффузияны',
+                    'Седиментацияны'
+                ],
+                correct: 0,
+                explanation: 'Коагуляциялық қабілет ион зарядына тәуелді.'
+            },
+            {
+                type: 'single',
+                question: 'Тұтқырлық дегеніміз не?',
+                options: [
+                    'Ағуға қарсылық',
+                    'Тығыздық',
+                    'Температура',
+                    'Көлем'
+                ],
+                correct: 0,
+                explanation: 'Тұтқырлық — ағуға қарсылық.'
+            },
+            {
+                type: 'single',
+                question: 'Эйнштейн теңдеуі:',
+                options: [
+                    'η = η₀(1 + 2.5φ)',
+                    'η = η₀ + φ',
+                    'η = 2.5η₀φ',
+                    'η = η₀/φ'
+                ],
+                correct: 0,
+                explanation: 'η = η₀(1 + 2.5φ).'
+            },
+            {
+                type: 'single',
+                question: 'Тиндал эффектісі дегеніміз не?',
+                options: [
+                    'Жарықтың шашырауы',
+                    'Жарықтың жұтылуы',
+                    'Жарықтың сынуы',
+                    'Жарықтың шағылысуы'
+                ],
+                correct: 0,
+                explanation: 'Тиндал эффектісі — жарықтың шашырауы.'
+            },
+            {
+                type: 'single',
+                question: 'Рэлей теңдеуіндегі I нені білдіреді?',
+                options: [
+                    'Шашыраған жарық қарқындылығы',
+                    'Түскен жарық',
+                    'Бөлшектер саны',
+                    'Толқын ұзындығы'
+                ],
+                correct: 0,
+                explanation: 'I — шашыраған жарық қарқындылығы.'
+            },
+            {
+                type: 'single',
+                question: 'Коллоидты жүйелердің тұрақтылығын арттыратын процесс:',
+                options: [
+                    'Тұрақтандыру',
+                    'Коагуляция',
+                    'Седиментация',
+                    'Диффузия'
+                ],
+                correct: 0,
+                explanation: 'Тұрақтандыру тұрақтылықты арттырады.'
+            }
+        ]
+    };
+
+    // ==================== ГЛОССАРИЙ ====================
+    const glossaryTerms = [
+        { term: 'Коллоид', definition: 'Дисперстік фазасы 1-100 нм болатын дисперсті жүйе.' },
+        { term: 'Дисперсті жүйе', definition: 'Бір заттың екінші заттың ішінде ұсақ бөлшектер түрінде таралған жүйесі.' },
+        { term: 'Дисперстік фаза', definition: 'Ұсақ бөлшектер түрінде таралған зат.' },
+        { term: 'Дисперсиялық орта', definition: 'Дисперстік фаза таралған орта.' },
+        { term: 'Адсорбция', definition: 'Бір заттың бетінде екінші заттың жинақталуы.' },
+        { term: 'Абсорбция', definition: 'Заттың басқа заттың көлемі бойынша сіңірілуі.' },
+        { term: 'Десорбция', definition: 'Адсорбцияланған заттың беттен бөлінуі.' },
+        { term: 'Коагуляция', definition: 'Коллоидты бөлшектердің бірігуі және тұнбаға түсуі.' },
+        { term: 'Седиментация', definition: 'Дисперстік фаза бөлшектерінің ауырлық күші әсерінен тұнбаға түсуі.' },
+        { term: 'Диффузия', definition: 'Заттың концентрациясы жоғары аймақтан төмен аймаққа таралуы.' },
+        { term: 'Флуктуация', definition: 'Жүйедегі шамалардың (концентрация, тығыздық) кездейсоқ ауытқуы.' },
+        { term: 'Беттік керілу', definition: 'Сұйықтық бетінің аудан бірлігін ұлғайтуға жұмсалатын жұмыс.' },
+        { term: 'Тиндал эффектісі', definition: 'Коллоидты ерітінді арқылы жарық сәулесі өткенде жарықтың шашырауы.' },
+        { term: 'Тұрақтандыру', definition: 'Коллоидты жүйенің тұрақтылығын арттыру.' },
+        { term: 'Лиофильді жүйе', definition: 'Дисперстік фаза мен орта арасында жақсы әрекеттесу болатын жүйе.' },
+        { term: 'Лиофобты жүйе', definition: 'Дисперстік фаза мен орта арасында әлсіз әрекеттесу болатын жүйе.' }
+    ];
+
+    // ==================== НАВИГАЦИЯ ====================
+    function navigateTo(pageId) {
+        // Барлық беттерді жасыру
+        document.querySelectorAll('.section-page').forEach(page => {
+            page.classList.remove('active');
+        });
+        
+        // Таңдалған бетті көрсету
+        const targetPage = document.getElementById('page-' + pageId);
+        if (targetPage) {
+            targetPage.classList.add('active');
+            // Жоғарыға скролл
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Навигациялық сілтемелерді жаңарту
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+            if (link.dataset.page === pageId) {
+                link.classList.add('active');
+            }
+        });
+
+        // Мобильді мәзірді жабу
+        closeMobileMenu();
+
+        // Прогресті белгілеу
+        markProgress(pageId);
+    }
+
+    // Барлық навигациялық сілтемелерге оқиға қосу
+    document.querySelectorAll('.nav-link[data-page]').forEach(link => {
+        link.addEventListener('click', function() {
+            navigateTo(this.dataset.page);
+        });
+    });
+
+    // ==================== МОБИЛЬДІ МӘЗІР ====================
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+    mobileMenuBtn.addEventListener('click', function() {
+        sidebar.classList.toggle('open');
+        sidebarOverlay.classList.toggle('show');
+    });
+
+    sidebarOverlay.addEventListener('click', closeMobileMenu);
+
+    function closeMobileMenu() {
+        sidebar.classList.remove('open');
+        sidebarOverlay.classList.remove('show');
+    }
+
+    // ==================== ТАҚЫРЫП ====================
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem(THEME_KEY) || 'light';
+
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+        localStorage.setItem(THEME_KEY, theme);
+    }
+
+    setTheme(savedTheme);
+
+    themeToggle.addEventListener('click', function() {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    });
+
+    // ==================== ПРОГРЕСС ====================
+    function getProgress() {
+        try {
+            return JSON.parse(localStorage.getItem(PROGRESS_KEY)) || {};
+        } catch {
+            return {};
+        }
+    }
+
+    function markProgress(pageId) {
+        const progress = getProgress();
+        if (!progress[pageId]) {
+            progress[pageId] = true;
+            localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress));
+            updateProgressBar();
+        }
+    }
+
+    function updateProgressBar() {
+        const progress = getProgress();
+        const totalSections = document.querySelectorAll('.section-page').length;
+        const completedSections = Object.keys(progress).length;
+        const percent = Math.round((completedSections / totalSections) * 100);
+        
+        document.getElementById('progressFill').style.width = percent + '%';
+        document.getElementById('progressPercent').textContent = percent + '%';
+    }
+
+    // Прогресті тазарту
+    document.getElementById('resetProgressBtn').addEventListener('click', function() {
+        if (confirm('Прогресті тазартуға сенімдісіз бе? Барлық нәтижелер жойылады.')) {
+            localStorage.removeItem(PROGRESS_KEY);
+            localStorage.removeItem(LAB_RESULTS_KEY);
+            localStorage.removeItem(QUIZ_RESULTS_KEY);
+            updateProgressBar();
+            alert('Прогресс тазартылды!');
+        }
+    });
+
+    // ==================== ТЕСТТЕР ====================
+    function renderQuiz(quizId) {
+        const container = document.getElementById(quizId + '-questions');
+        if (!container) return;
+        
+        const questions = quizzes[quizId];
+        if (!questions) return;
+
+        container.innerHTML = questions.map((q, index) => {
+            let optionsHtml = '';
+            
+            if (q.type === 'single') {
+                optionsHtml = q.options.map((opt, optIndex) => `
+                    <label class="quiz-option" data-q="${index}" data-opt="${optIndex}">
+                        <input type="radio" name="${quizId}-q${index}" value="${optIndex}">
+                        <span>${opt}</span>
+                    </label>
+                `).join('');
+            } else if (q.type === 'multiple') {
+                optionsHtml = q.options.map((opt, optIndex) => `
+                    <label class="quiz-option" data-q="${index}" data-opt="${optIndex}">
+                        <input type="checkbox" name="${quizId}-q${index}" value="${optIndex}">
+                        <span>${opt}</span>
+                    </label>
+                `).join('');
+            } else if (q.type === 'truefalse') {
+                optionsHtml = `
+                    <label class="quiz-option" data-q="${index}" data-opt="true">
+                        <input type="radio" name="${quizId}-q${index}" value="true">
+                        <span>Дұрыс</span>
+                    </label>
+                    <label class="quiz-option" data-q="${index}" data-opt="false">
+                        <input type="radio" name="${quizId}-q${index}" value="false">
+                        <span>Бұрыс</span>
+                    </label>
+                `;
+            }
+
+            return `
+                <div class="quiz-question" data-qindex="${index}">
+                    <div class="q-text">
+                        <span class="q-number">${index + 1}.</span>
+                        <span>${q.question}</span>
+                    </div>
+                    <div class="quiz-options">${optionsHtml}</div>
+                    <div class="quiz-feedback" id="${quizId}-fb-${index}"></div>
+                </div>
+            `;
+        }).join('');
+
+        // Опцияларды таңдау
+        container.querySelectorAll('.quiz-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const input = this.querySelector('input');
+                if (input.type === 'radio') {
+                    // Бірдей топтағы барлық опциялардан selected класын алу
+                    const name = input.name;
+                    container.querySelectorAll(`input[name="${name}"]`).forEach(inp => {
+                        inp.closest('.quiz-option').classList.remove('selected');
+                    });
+                    input.checked = true;
+                } else {
+                    input.checked = !input.checked;
+                }
+                this.classList.toggle('selected', input.checked);
+            });
+        });
+    }
+
+    function checkQuiz(quizId) {
+        const questions = quizzes[quizId];
+        const container = document.getElementById(quizId + '-questions');
+        if (!questions || !container) return;
+
+        let correctCount = 0;
+        const totalQuestions = questions.length;
+
+        questions.forEach((q, index) => {
+            const questionEl = container.querySelector(`[data-qindex="${index}"]`);
+            const feedbackEl = document.getElementById(`${quizId}-fb-${index}`);
+            const options = questionEl.querySelectorAll('.quiz-option');
+            
+            let isCorrect = false;
+            let userAnswer = null;
+
+            if (q.type === 'single') {
+                const selected = questionEl.querySelector('input[type="radio"]:checked');
+                if (selected) {
+                    userAnswer = parseInt(selected.value);
+                    isCorrect = userAnswer === q.correct;
+                }
+            } else if (q.type === 'multiple') {
+                const selected = questionEl.querySelectorAll('input[type="checkbox"]:checked');
+                const selectedValues = Array.from(selected).map(inp => parseInt(inp.value)).sort();
+                const correctValues = [...q.correct].sort();
+                isCorrect = JSON.stringify(selectedValues) === JSON.stringify(correctValues);
+                userAnswer = selectedValues;
+            } else if (q.type === 'truefalse') {
+                const selected = questionEl.querySelector('input[type="radio"]:checked');
+                if (selected) {
+                    userAnswer = selected.value === 'true';
+                    isCorrect = userAnswer === q.correct;
+                }
+            }
+
+            // Жауаптарды белгілеу
+            options.forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+                const input = opt.querySelector('input');
+                
+                if (q.type === 'single') {
+                    const optValue = parseInt(opt.dataset.opt);
+                    if (optValue === q.correct) {
+                        opt.classList.add('correct');
+                    } else if (input.checked && optValue !== q.correct) {
+                        opt.classList.add('incorrect');
+                    }
+                } else if (q.type === 'multiple') {
+                    const optValue = parseInt(opt.dataset.opt);
+                    const isCorrectOpt = q.correct.includes(optValue);
+                    const isSelected = input.checked;
+                    
+                    if (isCorrectOpt) {
+                        opt.classList.add('correct');
+                    } else if (isSelected && !isCorrectOpt) {
+                        opt.classList.add('incorrect');
+                    }
+                } else if (q.type === 'truefalse') {
+                    const optValue = opt.dataset.opt === 'true';
+                    if (optValue === q.correct) {
+                        opt.classList.add('correct');
+                    } else if (input.checked && optValue !== q.correct) {
+                        opt.classList.add('incorrect');
+                    }
+                }
+            });
+
+            // Кері байланыс
+            if (feedbackEl) {
+                feedbackEl.classList.add('show');
+                if (isCorrect) {
+                    feedbackEl.classList.add('correct');
+                    feedbackEl.classList.remove('incorrect');
+                    feedbackEl.textContent = '✅ Дұрыс жауап!';
+                    correctCount++;
+                } else {
+                    feedbackEl.classList.add('incorrect');
+                    feedbackEl.classList.remove('correct');
+                    feedbackEl.textContent = '❌ Қайта ойланып көріңіз. ' + (q.explanation || '');
+                }
+            }
+        });
+
+        // Нәтижені көрсету
+        const resultEl = document.getElementById(quizId + '-result');
+        const percent = Math.round((correctCount / totalQuestions) * 100);
+        let grade = '';
+        
+        if (percent >= 90) grade = 'Өте жақсы';
+        else if (percent >= 75) grade = 'Жақсы';
+        else if (percent >= 50) grade = 'Қанағаттанарлық';
+        else grade = 'Қайталап оқу қажет';
+
+        resultEl.style.display = 'block';
+        resultEl.innerHTML = `
+            <div class="score">${correctCount} / ${totalQuestions}</div>
+            <div>Дұрыс жауаптар: ${correctCount}</div>
+            <div>Пайыздық көрсеткіш: ${percent}%</div>
+            <div class="grade">Баға: ${grade}</div>
+        `;
+
+        // Нәтижені сақтау
+        try {
+            const quizResults = JSON.parse(localStorage.getItem(QUIZ_RESULTS_KEY)) || {};
+            quizResults[quizId] = { correct: correctCount, total: totalQuestions, percent: percent, grade: grade };
+            localStorage.setItem(QUIZ_RESULTS_KEY, JSON.stringify(quizResults));
+        } catch (e) {
+            console.error('Тест нәтижесін сақтау қатесі:', e);
+        }
+
+        // Прогресті белгілеу
+        markProgress(quizId);
+    }
+
+    // ==================== ЕСЕПТЕУ ФУНКЦИЯЛАРЫ ====================
+    function calculateLab1() {
+        const mass = parseFloat(document.getElementById('lab1-mass').value);
+        const volume = parseFloat(document.getElementById('lab1-volume').value);
+        
+        if (isNaN(mass) || isNaN(volume) || volume <= 0) {
+            document.getElementById('lab1-result').textContent = 'Өтінемін, барлық өрістерді дұрыс толтырыңыз.';
+            return;
+        }
+
+        const concentration = (mass / volume) * 1000; // г/л
+        document.getElementById('lab1-result').textContent = 
+            `Ерітінді концентрациясы: ${concentration.toFixed(2)} г/л`;
+        
+        markProgress('lab1');
+    }
+
+    function calculateLab4() {
+        const waterDrops = parseFloat(document.getElementById('lab4-water').value);
+        const alcoholDrops = parseFloat(document.getElementById('lab4-alcohol').value);
+        const soapDrops = parseFloat(document.getElementById('lab4-soap').value);
+
+        if (isNaN(waterDrops) || isNaN(alcoholDrops) || isNaN(soapDrops)) {
+            document.getElementById('lab4-result').textContent = 'Өтінемін, барлық өрістерді толтырыңыз.';
+            return;
+        }
+
+        const waterSigma = 72.8;
+        const alcoholSigma = waterSigma * (waterDrops / alcoholDrops);
+        const soapSigma = waterSigma * (waterDrops / soapDrops);
+
+        document.getElementById('lab4-result').innerHTML = 
+            `Спирттің беттік керілуі: ${alcoholSigma.toFixed(1)} мН/м<br>` +
+            `Сабын ерітіндісінің беттік керілуі: ${soapSigma.toFixed(1)} мН/м`;
+        
+        markProgress('lab4');
+    }
+
+    function calculateLab5() {
+        const c0 = parseFloat(document.getElementById('lab5-c0').value);
+        const c1 = parseFloat(document.getElementById('lab5-c1').value);
+        const mass = parseFloat(document.getElementById('lab5-mass').value);
+        const volume = parseFloat(document.getElementById('lab5-volume').value);
+
+        if (isNaN(c0) || isNaN(c1) || isNaN(mass) || isNaN(volume) || mass <= 0) {
+            document.getElementById('lab5-result').textContent = 'Өтінемін, барлық өрістерді дұрыс толтырыңыз.';
+            return;
+        }
+
+        const adsorption = ((c0 - c1) * volume) / (1000 * mass); // мг/г
+        document.getElementById('lab5-result').textContent = 
+            `Адсорбция мөлшері: ${adsorption.toFixed(3)} мг/г`;
+        
+        markProgress('lab5');
+    }
+
+    function calculateLab10() {
+        const nacl = parseFloat(document.getElementById('lab10-nacl').value);
+        const cacl2 = parseFloat(document.getElementById('lab10-cacl2').value);
+        const alcl3 = parseFloat(document.getElementById('lab10-alcl3').value);
+
+        if (isNaN(nacl) || isNaN(cacl2) || isNaN(alcl3)) {
+            document.getElementById('lab10-result').textContent = 'Өтінемін, барлық өрістерді толтырыңыз.';
+            return;
+        }
+
+        const ratio1 = nacl / cacl2;
+        const ratio2 = nacl / alcl3;
+
+        document.getElementById('lab10-result').innerHTML = 
+            `NaCl/CaCl₂ коагуляция шектерінің қатынасы: ${ratio1.toFixed(1)}<br>` +
+            `NaCl/AlCl₃ коагуляция шектерінің қатынасы: ${ratio2.toFixed(1)}<br>` +
+            `<small>Шульце-Гарди ережесі бойынша заряд артқанда коагуляциялық қабілет артады.</small>`;
+        
+        markProgress('lab10');
+    }
+
+    function calculateLab12() {
+        const waterTime = parseFloat(document.getElementById('lab12-water').value);
+        const solutionTime = parseFloat(document.getElementById('lab12-solution').value);
+        const solutionDensity = parseFloat(document.getElementById('lab12-density').value);
+        const waterDensity = parseFloat(document.getElementById('lab12-water-density').value);
+
+        if (isNaN(waterTime) || isNaN(solutionTime) || isNaN(solutionDensity) || isNaN(waterDensity)) {
+            document.getElementById('lab12-result').textContent = 'Өтінемін, барлық өрістерді толтырыңыз.';
+            return;
+        }
+
+        if (waterTime <= 0 || waterDensity <= 0) {
+            document.getElementById('lab12-result').textContent = 'Уақыт пен тығыздық нөлден үлкен болуы керек.';
+            return;
+        }
+
+        const relativeViscosity = (solutionTime * solutionDensity) / (waterTime * waterDensity);
+        document.getElementById('lab12-result').textContent = 
+            `Салыстырмалы тұтқырлық: ${relativeViscosity.toFixed(3)}`;
+        
+        markProgress('lab12');
+    }
+
+    // ==================== ЕСЕПТЕР ====================
+    function toggleSolution(btn) {
+        const solution = btn.nextElementSibling;
+        if (solution) {
+            solution.classList.toggle('show');
+            btn.textContent = solution.classList.contains('show') ? 'Шешуін жасыру' : 'Шешуін көрсету';
+        }
+    }
+
+    // ==================== ГЛОССАРИЙ ====================
+    function renderGlossary() {
+        const container = document.getElementById('glossaryList');
+        if (!container) return;
+
+        container.innerHTML = glossaryTerms.map((item, index) => `
+            <div class="glossary-item" data-index="${index}">
+                <div class="glossary-term" onclick="toggleGlossary(${index})">
+                    <span>${item.term}</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="glossary-definition">${item.definition}</div>
+            </div>
+        `).join('');
+    }
+
+    function toggleGlossary(index) {
+        const item = document.querySelector(`.glossary-item[data-index="${index}"]`);
+        if (item) {
+            item.classList.toggle('open');
+        }
+    }
+
+    // ==================== ІЗДЕУ ====================
+    const searchInput = document.getElementById('searchInput');
+    
+    searchInput.addEventListener('input', function() {
+        const query = this.value.toLowerCase().trim();
+        
+        if (query.length < 2) return;
+
+        // Барлық беттерді тексеру
+        const allPages = document.querySelectorAll('.section-page');
+        let found = false;
+
+        allPages.forEach(page => {
+            const text = page.textContent.toLowerCase();
+            if (text.includes(query)) {
+                if (!found) {
+                    // Бірінші табылған бетті көрсету
+                    allPages.forEach(p => p.classList.remove('active'));
+                    page.classList.add('active');
+                    found = true;
+                    
+                    // Навигациялық сілтемені белсендіру
+                    const pageId = page.id.replace('page-', '');
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.dataset.page === pageId) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            }
+        });
+    });
+
+    // ==================== БАСТАПҚЫ ЖҮКТЕУ ====================
+    document.addEventListener('DOMContentLoaded', function() {
+        // Тесттерді рендерлеу
+        ['quiz1', 'quiz2', 'quiz3', 'quiz4', 'quiz5', 'quiz6', 'finalQuiz'].forEach(quizId => {
+            renderQuiz(quizId);
+        });
+
+        // Глоссарийді рендерлеу
+        renderGlossary();
+
+        // Прогресс барды жаңарту
+        updateProgressBar();
+
+        // Соңғы бетті ашу (егер бар болса)
+        const lastPage = localStorage.getItem('colloid_last_page');
+        if (lastPage) {
+            navigateTo(lastPage);
+        }
+
+        // Бетті сақтау
+        window.addEventListener('beforeunload', function() {
+            const activePage = document.querySelector('.section-page.active');
+            if (activePage) {
+                localStorage.setItem('colloid_last_page', activePage.id.replace('page-', ''));
+            }
+        });
+
+        // Пернетақтамен навигация
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+            }
+        });
+
+        // Формула карточкаларын басу
+        document.querySelectorAll('.formula-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.classList.toggle('expanded');
+            });
+        });
+    });
+
+    // ==================== ҚОСЫМША: АНИМАЦИЯ ====================
+    // Броундық қозғалыс анимациясы (SVG)
+    function animateBrownian() {
+        const path = document.querySelector('.schema-container path');
+        if (!path) return;
+        
+        let offset = 0;
+        setInterval(() => {
+            offset = (offset + 1) % 100;
+            // Анимацияны жаңарту (қарапайым)
+        }, 100);
+    }
+
+    // ==================== ЭКСПОРТ ====================
+    window.navigateTo = navigateTo;
+    window.toggleSolution = toggleSolution;
+    window.toggleGlossary = toggleGlossary;
+    window.calculateLab1 = calculateLab1;
+    window.calculateLab4 = calculateLab4;
+    window.calculateLab5 = calculateLab5;
+    window.calculateLab10 = calculateLab10;
+    window.calculateLab12 = calculateLab12;
+    window.checkQuiz = checkQuiz;
+</script>
+
+</body>
+</html>
